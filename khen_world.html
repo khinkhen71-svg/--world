@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khen's World ♡</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:#111014;
+    color:#eee8e8;
+    font-family:Georgia,"Times New Roman",serif;
+    overflow-x:hidden;
+  }
+  body:before{
+    content:"✦  ·  ✧  ·  ⋆  ·  ✦  ·  ✧";
+    position:fixed; inset:0;
+    opacity:.16; font-size:30px; letter-spacing:25px;
+    line-height:90px; pointer-events:none;
+  }
+  .cover{
+    min-height:100vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center;
+    padding:30px;
+    background:radial-gradient(circle at 50% 40%,#29232c 0,#151318 45%,#0c0b0e 100%);
+  }
+  .cover h1{font-size:clamp(44px,12vw,92px); margin:8px 0; font-weight:400; letter-spacing:3px}
+  .cover p{color:#bdb3ba; letter-spacing:4px}
+  button{
+    border:1px solid #817681; background:#1b181d; color:#f4eef2;
+    border-radius:999px; padding:14px 25px; cursor:pointer;
+    letter-spacing:1px; transition:.25s;
+  }
+  button:hover{transform:translateY(-2px);background:#29232c}
+  .site{display:none;max-width:1050px;margin:auto;padding:55px 22px 80px}
+  .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center}
+  .portrait{
+    min-height:470px;border:1px solid #514b53;border-radius:24px;
+    background:linear-gradient(145deg,#29232c,#151318);
+    display:flex;align-items:center;justify-content:center;
+    font-size:110px;box-shadow:0 20px 70px #0008;
+  }
+  .tag{color:#aaa0a8;letter-spacing:3px}
+  h2{font-size:30px;font-weight:400;margin-bottom:8px}
+  .card{
+    border:1px solid #413c43;background:#19171b;
+    border-radius:20px;padding:24px;margin-top:22px;
+  }
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .item{padding:18px;border:1px solid #39343a;border-radius:16px;background:#141216}
+  .item b{display:block;margin-bottom:9px;font-weight:400;color:#d9ced6}
+  .polaroids{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+  .photo{height:170px;background:#29252b;border:8px solid #eee9e8;color:#39333a;display:flex;align-items:center;justify-content:center;transform:rotate(-2deg)}
+  .photo:nth-child(2){transform:rotate(2deg)} .photo:nth-child(3){transform:rotate(-1deg)}
+  .colors{display:flex;gap:12px}.swatch{width:58px;height:58px;border-radius:50%;border:1px solid #777}
+  .music{position:fixed;right:15px;bottom:15px;background:#19171b;border:1px solid #514b53;padding:10px 14px;border-radius:18px;font-size:13px}
+  @media(max-width:720px){
+    .hero,.grid{grid-template-columns:1fr}
+    .portrait{min-height:330px}
+    .polaroids{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<section class="cover" id="cover">
+  <div class="tag">✦ A LITTLE CORNER OF MY WORLD ✦</div>
+  <h1>Khen</h1>
+  <p>INFP · TYPE DEER · ♡</p>
+  <button onclick="enterWorld()">ENTER MY WORLD ♡</button>
+</section>
+
+<main class="site" id="site">
+  <section class="hero">
+    <div class="portrait">🦌</div>
+    <div>
+      <div class="tag">HELLO, I'M</div>
+      <h1>Khen</h1>
+      <p>พื้นที่เล็ก ๆ ที่รวมสิ่งที่เป็นฉันเอาไว้</p>
+      <div class="card">
+        <b>ABOUT ME</b>
+        <p>ชอบสร้างสรรค์สิ่งต่าง ๆ ฟังเพลง เล่นเกม วาดรูป
+        และเก็บช่วงเวลาเล็ก ๆ ที่ตัวเองชอบไว้ในโลกของตัวเอง</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>PERSONALITY</h2>
+    <div class="grid">
+      <div class="item"><b>MBTI</b>INFP</div>
+      <div class="item"><b>TYPE</b>Deer 🦌</div>
+      <div class="item"><b>VIBE</b>quiet · dreamy · creative</div>
+      <div class="item"><b>MOOD</b>depends on the day ♡</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>THINGS I LIKE ♡</h2>
+    <div class="grid">
+      <div class="item">🎧 ฟังเพลง</div>
+      <div class="item">🎨 วาดรูป</div>
+      <div class="item">🎮 เล่นเกม</div>
+      <div class="item">📷 ถ่ายรูป</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>PHOTO WALL</h2>
+    <div class="polaroids">
+      <div class="photo">YOUR PHOTO</div>
+      <div class="photo">YOUR PHOTO</div>
+      <div class="photo">YOUR PHOTO</div>
+    </div>
+    <p class="tag">เปลี่ยนช่องเหล่านี้เป็นรูปของหนูได้</p>
+  </section>
+
+  <section class="card">
+    <h2>MY COLORS</h2>
+    <div class="colors">
+      <div class="swatch" style="background:#17151a"></div>
+      <div class="swatch" style="background:#302832"></div>
+      <div class="swatch" style="background:#625663"></div>
+      <div class="swatch" style="background:#b9aab5"></div>
+      <div class="swatch" style="background:#e5dfe2"></div>
+    </div>
+  </section>
+</main>
+
+<div class="music">♪ After Dark — Mr.Kitty</div>
+
+<audio id="music" loop>
+  <!-- ใส่ไฟล์เพลงที่มีสิทธิ์ใช้งานไว้ชื่อ after-dark.mp3 ในโฟลเดอร์เดียวกับไฟล์นี้ -->
+  <source src="after-dark.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function enterWorld(){
+  document.getElementById("cover").style.display="none";
+  document.getElementById("site").style.display="block";
+  const music=document.getElementById("music");
+  music.play().catch(()=>{});
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
