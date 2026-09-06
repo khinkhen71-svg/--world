@@ -1,962 +1,465 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ดื้อดื้อ ♡</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Khen's World ♡</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap');
 
 :root{
-  --bg:#09070b;
-  --card:#151018;
-  --pink:#f4b8d5;
-  --pink2:#ffd8e9;
-  --pearl:#fff8fc;
-  --muted:#bbaab5;
-  --line:rgba(255,210,232,.18);
+--bg:#09070b;
+--card:#151018;
+--pink:#f4b8d5;
+--pink2:#ffd8e9;
+--pearl:#fff8fc;
+--muted:#bbaab5;
+--line:rgba(255,210,232,.18)
 }
 
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
-  margin:0;
-  background:
-    radial-gradient(
-      circle at 20% 10%,
-      rgba(244,184,213,.10),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 85% 80%,
-      rgba(255,248,252,.07),
-      transparent 25%
-    ),
-    var(--bg);
-
-  color:var(--pearl);
-  font-family:Kanit,sans-serif;
-  min-height:100vh;
-  overflow-x:hidden;
+margin:0;
+background:
+radial-gradient(circle at 20% 10%,rgba(244,184,213,.1),transparent 28%),
+radial-gradient(circle at 85% 80%,rgba(255,248,252,.07),transparent 25%),
+var(--bg);
+color:var(--pearl);
+font-family:Kanit,sans-serif;
+min-height:100vh;
+overflow-x:hidden
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-
-/* =========================
-   PARTICLES
-========================= */
+a{color:inherit;text-decoration:none}
 
 #particles{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  overflow:hidden;
-  z-index:0;
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+z-index:0
 }
 
 .particle{
-  position:absolute;
-  opacity:.7;
-  animation:float 7s linear infinite;
-  color:var(--pink2);
+position:absolute;
+opacity:.7;
+animation:float 7s linear infinite;
+color:var(--pink2)
 }
 
 @keyframes float{
-  0%{
-    transform:translateY(110vh) rotate(0);
-    opacity:0;
-  }
-
-  15%{
-    opacity:.7;
-  }
-
-  85%{
-    opacity:.7;
-  }
-
-  100%{
-    transform:translateY(-15vh) rotate(180deg);
-    opacity:0;
-  }
+0%{transform:translateY(110vh) rotate(0);opacity:0}
+15%{opacity:.7}
+85%{opacity:.7}
+100%{transform:translateY(-15vh) rotate(180deg);opacity:0}
 }
 
-
-/* =========================
-   COVER
-========================= */
-
 .cover{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:30px;
-  position:relative;
-  z-index:2;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:30px;
+position:relative;
+z-index:2
 }
 
 .cover-box{
-  max-width:700px;
-  padding:45px 25px;
-
-  border:1px solid var(--line);
-  border-radius:28px;
-
-  background:rgba(21,16,24,.78);
-
-  backdrop-filter:blur(12px);
-
-  box-shadow:
-    0 20px 80px rgba(0,0,0,.4);
+max-width:700px;
+padding:45px 25px;
+border:1px solid var(--line);
+border-radius:28px;
+background:rgba(21,16,24,.78);
+backdrop-filter:blur(12px);
+box-shadow:0 20px 80px rgba(0,0,0,.4)
 }
 
 .small{
-  letter-spacing:5px;
-  color:var(--pink);
-  font-size:12px;
+letter-spacing:5px;
+color:var(--pink);
+font-size:12px
 }
 
 h1{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(42px,10vw,82px);
-  margin:14px 0 4px;
+font-family:"Playfair Display",serif;
+font-size:clamp(42px,10vw,82px);
+margin:14px 0 4px
 }
 
 .subtitle{
-  color:var(--muted);
-  margin-bottom:28px;
+color:var(--muted);
+margin-bottom:28px
 }
 
 .enter{
-  border:1px solid var(--pink);
-  color:var(--pink2);
-  background:transparent;
-
-  padding:13px 25px;
-
-  border-radius:999px;
-
-  cursor:pointer;
-
-  transition:.25s;
+border:1px solid var(--pink);
+color:var(--pink2);
+background:transparent;
+padding:13px 25px;
+border-radius:999px;
+cursor:pointer;
+transition:.25s
 }
 
 .enter:hover{
-  background:rgba(244,184,213,.12);
-  transform:translateY(-2px);
+background:rgba(244,184,213,.12);
+transform:translateY(-2px)
 }
-
-
-/* =========================
-   WEBSITE
-========================= */
 
 #site{
-  display:none;
-  position:relative;
-  z-index:1;
+display:none;
+position:relative;
+z-index:1
 }
 
-
-/* =========================
-   NAVIGATION
-========================= */
-
 nav{
-  position:sticky;
-  top:0;
-  z-index:10;
-
-  display:flex;
-  gap:8px;
-  justify-content:center;
-  flex-wrap:wrap;
-
-  padding:13px 10px;
-
-  background:rgba(9,7,11,.84);
-
-  backdrop-filter:blur(14px);
-
-  border-bottom:1px solid var(--line);
+position:sticky;
+top:0;
+z-index:10;
+display:flex;
+gap:8px;
+justify-content:center;
+flex-wrap:wrap;
+padding:13px 10px;
+background:rgba(9,7,11,.84);
+backdrop-filter:blur(14px);
+border-bottom:1px solid var(--line)
 }
 
 .nav-btn{
-  border:1px solid transparent;
-
-  background:transparent;
-
-  color:var(--muted);
-
-  padding:8px 12px;
-
-  border-radius:999px;
-
-  cursor:pointer;
-
-  transition:.2s;
+border:1px solid transparent;
+background:transparent;
+color:var(--muted);
+padding:8px 12px;
+border-radius:999px;
+cursor:pointer
 }
 
 .nav-btn:hover,
 .nav-btn.active{
-  color:var(--pink2);
-
-  border-color:var(--line);
-
-  background:rgba(244,184,213,.07);
+color:var(--pink2);
+border-color:var(--line);
+background:rgba(244,184,213,.07)
 }
-
-
-/* =========================
-   PAGES
-========================= */
 
 .page{
-  display:none;
-
-  max-width:900px;
-
-  margin:auto;
-
-  min-height:calc(100vh - 70px);
-
-  padding:70px 20px 90px;
-
-  animation:pageIn .45s ease;
+display:none;
+max-width:900px;
+margin:auto;
+min-height:calc(100vh - 70px);
+padding:70px 20px 90px;
+animation:pageIn .45s ease
 }
 
-.page.active{
-  display:block;
-}
+.page.active{display:block}
 
 @keyframes pageIn{
-  from{
-    opacity:0;
-    transform:translateY(12px);
-  }
-
-  to{
-    opacity:1;
-    transform:none;
-  }
+from{opacity:0;transform:translateY(12px)}
+to{opacity:1;transform:none}
 }
 
 .page-title{
-  font-family:"Playfair Display",serif;
-
-  font-size:clamp(34px,8vw,58px);
-
-  margin:0 0 8px;
+font-family:"Playfair Display",serif;
+font-size:clamp(34px,8vw,58px);
+margin:0 0 8px
 }
 
 .page-sub{
-  color:var(--muted);
-
-  margin:0 0 30px;
+color:var(--muted);
+margin:0 0 30px
 }
 
-
-/* =========================
-   CARDS
-========================= */
-
 .card{
-  background:rgba(21,16,24,.78);
-
-  border:1px solid var(--line);
-
-  border-radius:24px;
-
-  padding:24px;
-
-  margin:15px 0;
-
-  box-shadow:
-    0 15px 50px rgba(0,0,0,.18);
+background:rgba(21,16,24,.78);
+border:1px solid var(--line);
+border-radius:24px;
+padding:24px;
+margin:15px 0;
+box-shadow:0 15px 50px rgba(0,0,0,.18)
 }
 
 .grid{
-  display:grid;
-
-  grid-template-columns:
-  repeat(auto-fit,minmax(190px,1fr));
-
-  gap:15px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:15px
 }
 
 .item{
-  border:1px solid var(--line);
-
-  border-radius:20px;
-
-  padding:20px;
-
-  background:rgba(255,255,255,.025);
-
-  transition:.25s;
+border:1px solid var(--line);
+border-radius:20px;
+padding:20px;
+background:rgba(255,255,255,.025);
+transition:.25s
 }
 
 .item:hover{
-  transform:translateY(-4px);
-
-  border-color:
-  rgba(244,184,213,.45);
+transform:translateY(-4px);
+border-color:rgba(244,184,213,.45)
 }
 
-.icon{
-  font-size:27px;
-}
+.icon{font-size:27px}
 
 .label{
-  color:var(--pink);
-
-  font-size:13px;
-
-  margin-top:7px;
+color:var(--pink);
+font-size:13px;
+margin-top:7px
 }
 
 .value{
-  font-size:17px;
-
-  margin-top:3px;
+font-size:17px;
+margin-top:3px
 }
 
-
-/* =========================
-   CONTACT
-========================= */
-
 .contact-btn{
-  display:block;
-
-  border:1px solid var(--line);
-
-  border-radius:18px;
-
-  padding:15px 17px;
-
-  margin:10px 0;
-
-  background:rgba(255,255,255,.025);
-
-  transition:.2s;
+display:block;
+border:1px solid var(--line);
+border-radius:18px;
+padding:15px 17px;
+margin:10px 0;
+background:rgba(255,255,255,.025);
+transition:.2s
 }
 
 .contact-btn:hover{
-  background:
-  rgba(244,184,213,.10);
-
-  transform:translateX(4px);
+background:rgba(244,184,213,.1);
+transform:translateX(4px)
 }
 
-
-/* =========================
-   COLOR PALETTE
-========================= */
-
 .palette{
-  display:flex;
-
-  gap:14px;
-
-  flex-wrap:wrap;
+display:flex;
+gap:14px;
+flex-wrap:wrap
 }
 
 .swatch{
-  min-width:130px;
-
-  height:100px;
-
-  border-radius:22px;
-
-  display:flex;
-
-  align-items:end;
-
-  padding:12px;
-
-  border:1px solid var(--line);
-
-  color:#33252e;
+min-width:130px;
+height:100px;
+border-radius:22px;
+display:flex;
+align-items:end;
+padding:12px;
+border:1px solid var(--line);
+color:#33252e
 }
 
-.pink{
-  background:#f4b8d5;
-}
-
-.pearlpink{
-  background:#ffd8e9;
-}
-
-.whitepearl{
-  background:#fff8fc;
-}
-
-
-/* =========================
-   GAME CODE
-========================= */
+.pink{background:#f4b8d5}
+.pearlpink{background:#ffd8e9}
+.whitepearl{background:#fff8fc}
 
 .game-code{
-  font-family:monospace;
-
-  color:var(--pink2);
-
-  background:rgba(0,0,0,.3);
-
-  padding:3px 7px;
-
-  border-radius:7px;
+font-family:monospace;
+color:var(--pink2);
+background:rgba(0,0,0,.3);
+padding:3px 7px;
+border-radius:7px
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
 footer{
-  text-align:center;
-
-  color:#8f7f89;
-
-  padding:25px;
-
-  border-top:1px solid var(--line);
+text-align:center;
+color:#8f7f89;
+padding:25px;
+border-top:1px solid var(--line)
 }
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     FLOATING DECORATION
-========================= -->
 
 <div id="particles"></div>
 
-
-<!-- =========================
-     COVER
-========================= -->
-
 <section class="cover" id="cover">
-
-  <div class="cover-box">
-
-    <div class="small">
-      ✦ A LITTLE CORNER OF MY WORLD ✦
-    </div>
-
-    <h1>ดื้อดื้อ</h1>
-
-    <div class="subtitle">
-      INFP · MY SPEC ♡
-    </div>
-
-    <button
-      class="enter"
-      onclick="enterSite()">
-
-      ENTER MY WORLD ♡
-
-    </button>
-
-  </div>
-
+<div class="cover-box">
+<div class="small">✦ A LITTLE CORNER OF MY WORLD ✦</div>
+<h1>ดื้อดื้อ</h1>
+<div class="subtitle">INFP · MY SPEC ♡</div>
+<button class="enter" onclick="enterSite()">ENTER MY WORLD ♡</button>
+</div>
 </section>
-
-
-
-<!-- =========================
-     MAIN WEBSITE
-========================= -->
 
 <div id="site">
 
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
 <nav>
-
-<button
-class="nav-btn active"
-data-page="home">
-
-♡ Home
-
-</button>
-
-
-<button
-class="nav-btn"
-data-page="about">
-
-About Me
-
-</button>
-
-
-<button
-class="nav-btn"
-data-page="games">
-
-Games
-
-</button>
-
-
-<button
-class="nav-btn"
-data-page="contact">
-
-Contact
-
-</button>
-
-
-<button
-class="nav-btn"
-data-page="likes">
-
-Likes
-
-</button>
-
-
-<button
-class="nav-btn"
-data-page="spec">
-
-My Spec
-
-</button>
-
+<button class="nav-btn active" data-page="home">♡ Home</button>
+<button class="nav-btn" data-page="about">About Me</button>
+<button class="nav-btn" data-page="games">Games</button>
+<button class="nav-btn" data-page="contact">Contact</button>
+<button class="nav-btn" data-page="likes">Likes</button>
+<button class="nav-btn" data-page="spec">My Spec</button>
 </nav>
-
-
 
 <main>
 
-
-<!-- =========================
-     HOME
-========================= -->
-
-<section
-class="page active"
-id="home">
-
-<div class="small">
-WELCOME
-</div>
-
-<h2 class="page-title">
-My little world ♡
-</h2>
-
-<p class="page-sub">
-พื้นที่เล็ก ๆ ที่รวมสิ่งที่เป็นดื้อดื้อไว้ด้วยกัน
-</p>
-
+<section class="page active" id="home">
+<div class="small">WELCOME</div>
+<h2 class="page-title">My little world ♡</h2>
+<p class="page-sub">พื้นที่เล็ก ๆ ที่รวมสิ่งที่เป็น Khen ไว้ด้วยกัน</p>
 
 <div class="card">
-
-<h3>
-✦ Hello there
-</h3>
-
+<h3>✦ Hello there</h3>
 <p>
-ยินดีต้อนรับเข้ามาในโลกเล็ก ๆ ของฉันนะ ✨
-<br>
+ยินดีต้อนรับเข้ามาในโลกเล็ก ๆ ของฉันนะ ✨<br>
 กดเมนูด้านบนเพื่อเดินดูทีละหน้าได้เลย
 </p>
-
 </div>
-
 </section>
 
 
-
-<!-- =========================
-     ABOUT ME
-========================= -->
-
-<section
-class="page"
-id="about">
-
-<div class="small">
-ABOUT ME
-</div>
-
-<h2 class="page-title">
-A little about me
-</h2>
-
-<p class="page-sub">
-บางส่วนของตัวตนและบรรยากาศที่ฉันชอบ
-</p>
-
+<section class="page" id="about">
+<div class="small">ABOUT ME</div>
+<h2 class="page-title">A little about me</h2>
+<p class="page-sub">บางส่วนของตัวตนและบรรยากาศที่ฉันชอบ</p>
 
 <div class="grid">
 
+<div class="item">
+<div class="icon">🌷</div>
+<div class="label">PERSONALITY</div>
+<div class="value">INFP</div>
+</div>
 
 <div class="item">
-
-<div class="icon">
-🌷
+<div class="icon">🌙</div>
+<div class="label">VIBE</div>
+<div class="value">Dreamy · Soft · Quiet</div>
 </div>
-
-<div class="label">
-PERSONALITY
-</div>
-
-<div class="value">
-INFP
-</div>
-
-</div>
-
 
 <div class="item">
-
-<div class="icon">
-🌙
-</div>
-
-<div class="label">
-VIBE
-</div>
-
-<div class="value">
-Dreamy · Soft · Quiet
+<div class="icon">🎨</div>
+<div class="label">CREATIVE</div>
+<div class="value">ชอบสร้างและแต่งอะไรที่เป็นตัวเอง</div>
 </div>
 
 </div>
+</section>
 
 
-<div class="item">
+<section class="page" id="games">
+<div class="small">GAMES</div>
+<h2 class="page-title">Things I play</h2>
+<p class="page-sub">เกม / เซิร์ฟที่อยากใส่ไว้ในโปรไฟล์</p>
 
-<div class="icon">
-🎨
+<div class="card">
+<h3>🌷 Heartopia</h3>
+<p>Asia Server · Online</p>
+<p>Code: <span class="game-code">6p1ee2q</span></p>
 </div>
 
-<div class="label">
-CREATIVE
+<div class="card">
+<h3>🎮 Roblox</h3>
+<p>โปรไฟล์ Roblox ของฉัน</p>
+<a class="contact-btn"
+href="https://www.roblox.com/share?code=c25d543b07db2a47ac0af4609d7359fd&type=Profile&source=ProfileShare&stamp=1788686703070"
+target="_blank"
+rel="noopener">
+กดเพื่อดูโปรไฟล์ Roblox ↗
+</a>
 </div>
 
-<div class="value">
-ชอบสร้างและแต่งอะไรที่เป็นตัวเอง
+<div class="card">
+<h3>⛏️ Minecraft</h3>
+<p>โปรไฟล์ Minecraft ของฉัน</p>
+<a class="contact-btn"
+href="https://launch.minecraft.net/profile/shikhen%209308"
+target="_blank"
+rel="noopener">
+กดเพื่อดูโปรไฟล์ Minecraft ↗
+</a>
 </div>
 
-</div>
-
-
+<div class="card">
+<h3>☁️ Sky</h3>
+<p>Adventure · Online ✦</p>
 </div>
 
 </section>
 
 
+<section class="page" id="contact">
+<div class="small">CONTACT</div>
+<h2 class="page-title">Find me</h2>
+<p class="page-sub">กดที่ช่องเพื่อเปิดช่องทางติดต่อ</p>
 
-<!-- =========================
-     GAMES
-========================= -->
-
-<section
-class="page"
-id="games">
-
-<div class="small">
-GAMES
-</div>
-
-<h2 class="page-title">
-Things I play
-</h2>
-
-<p class="page-sub">
-เกม / เซิร์ฟที่อยากใส่ไว้ในโปรไฟล์
-</p>
-
-
-<div class="card">
-
-<h3>
-🎮 คลาสโทเปีย
-</h3>
-
-<p>
-Asia Server · Online
-</p>
-
-<p>
-Code:
-
-<span class="game-code">
-6p1ee2q
-</span>
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-💬 Discord
-</h3>
-
-<p>
-ใช้สำหรับติดต่อและพูดคุย
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section
-class="page"
-id="contact">
-
-<div class="small">
-CONTACT
-</div>
-
-<h2 class="page-title">
-Find me
-</h2>
-
-<p class="page-sub">
-กดที่ช่องเพื่อเปิดช่องทางติดต่อ
-</p>
-
-
-<a
-class="contact-btn"
+<a class="contact-btn"
 href="https://discord.com/"
 target="_blank"
 rel="noopener">
-
-💬
-
-<strong>
-Discord
-</strong>
-
-<br>
-
-<span style="color:var(--muted)">
-0199761651
-</span>
-
+💬 <strong>Discord</strong><br>
+<span style="color:var(--muted)">0199761651</span>
 </a>
 
-
-
-<a
-class="contact-btn"
+<a class="contact-btn"
 href="https://www.instagram.com/rak_rak_rak_rak_sa?stkn=enhqbW91em53Z2g2&utm_source=qr"
 target="_blank"
 rel="noopener">
+📷 <strong>Instagram</strong><br>
+<span style="color:var(--muted)">@rak_rak_rak_rak_sa</span>
+</a>
 
-📷
-
-<strong>
-Instagram
-</strong>
-
-<br>
-
-<span style="color:var(--muted)">
-@rak_rak_rak_rak_sa
-</span>
-
+<a class="contact-btn"
+href="https://www.tiktok.com/@may_21i5?_r=1&_t=ZS-99VFwUZ4DhQ"
+target="_blank"
+rel="noopener">
+🎵 <strong>TikTok</strong><br>
+<span style="color:var(--muted)">@may_21i5</span>
 </a>
 
 </section>
 
 
-
-<!-- =========================
-     LIKES
-========================= -->
-
-<section
-class="page"
-id="likes">
-
-<div class="small">
-LIKES
-</div>
-
-<h2 class="page-title">
-Things I like ♡
-</h2>
-
-<p class="page-sub">
-สีที่ฉันชอบ
-</p>
-
+<section class="page" id="likes">
+<div class="small">LIKES</div>
+<h2 class="page-title">Things I like ♡</h2>
+<p class="page-sub">เปลี่ยนรายการเดิมให้เป็นโทนสีที่ฉันชอบ</p>
 
 <div class="grid">
 
+<div class="item">
+<div class="icon">🎀</div>
+<div class="label">FAVORITE COLOR</div>
+<div class="value">สีชมพู</div>
+</div>
 
 <div class="item">
-
-<div class="icon">
-🎀
+<div class="icon">🫧</div>
+<div class="label">FAVORITE COLOR</div>
+<div class="value">สีมุก</div>
 </div>
-
-<div class="label">
-FAVORITE COLOR
-</div>
-
-<div class="value">
-สีชมพู
-</div>
-
-</div>
-
-
 
 <div class="item">
-
-<div class="icon">
-🫧
+<div class="icon">🌸</div>
+<div class="label">FAVORITE COLOR</div>
+<div class="value">สีมุกชมพู</div>
 </div>
-
-<div class="label">
-FAVORITE COLOR
-</div>
-
-<div class="value">
-สีมุก
-</div>
-
-</div>
-
-
 
 <div class="item">
-
-<div class="icon">
-🌸
-</div>
-
-<div class="label">
-FAVORITE COLOR
-</div>
-
-<div class="value">
-สีมุกชมพู
+<div class="icon">🤍</div>
+<div class="label">FAVORITE COLOR</div>
+<div class="value">สีขาวมุก</div>
 </div>
 
 </div>
-
-
-
-<div class="item">
-
-<div class="icon">
-🤍
-</div>
-
-<div class="label">
-FAVORITE COLOR
-</div>
-
-<div class="value">
-สีขาวมุก
-</div>
-
-</div>
-
-
-</div>
-
-
 
 <div class="card">
-
-<h3>
-My pearl palette
-</h3>
-
+<h3>My pearl palette</h3>
 
 <div class="palette">
-
-
-<div class="swatch pink">
-Pink
-</div>
-
-
-<div class="swatch pearlpink">
-Pearl Pink
-</div>
-
-
-<div class="swatch whitepearl">
-White Pearl
-</div>
-
-
+<div class="swatch pink">Pink</div>
+<div class="swatch pearlpink">Pearl Pink</div>
+<div class="swatch whitepearl">White Pearl</div>
 </div>
 
 </div>
-
 </section>
 
 
+<section class="page" id="spec">
 
-<!-- =========================
-     MY SPEC + INTRODUCTION
-========================= -->
-
-<section
-class="page"
-id="spec">
-
-<div class="small">
-MY SPEC
-</div>
-
-<h2 class="page-title">
-My Spec ♡
-</h2>
-
-<p class="page-sub">
-ไม่กำหนดรูปร่างหรือหน้าตาเป็นแบบตายตัว
-</p>
-
-
-
-<!-- INTRODUCTION -->
+<div class="small">MY SPEC</div>
+<h2 class="page-title">My Spec ♡</h2>
 
 <div class="card">
 
@@ -964,298 +467,127 @@ My Spec ♡
 ･*:.｡. .｡.:*･゜ﾟ･* แนะนำตัว ･*:.｡. .｡.:*･゜ﾟ･*
 </h3>
 
-<p>
-สวัสดีค่ะ หนูชื่อแคนนะคะ
-จะเรียกแอนก็ได้ค่ะ ♡
-</p>
+<p>สวัสดีค่ะ หนูชื่อแคนนะคะ จะเรียกแอนก็ได้ค่ะ ♡</p>
 
-<p>
-หนูเป็นคนมาเลเซีย
-แต่พูดง่าย ๆ ว่าเป็นคนไทยสยามนี่แหละค่ะ
-</p>
+<p>หนูเป็นคนมาเลเซีย แต่พูดง่าย ๆ ว่าเป็นคนไทยสยามนี่แหละค่ะ</p>
 
-<p>
-หนูเป็นผู้ชายนะคะ
-เสียงอาจจะหวานนิดหน่อย
-แค่นี้แหละค่ะ อิอิ
-</p>
+<p>หนูเป็นผู้ชายนะคะ เสียงอาจจะหวานนิดหน่อย แค่นี้แหละค่ะ อิอิ</p>
 
 </div>
 
-
-
-<!-- SPEC -->
+<p class="page-sub">
+ไม่กำหนดรูปร่างหรือหน้าตาเป็นแบบตายตัว
+</p>
 
 <div class="card">
 
 <div class="grid">
 
+<div class="item">
+<div class="icon">🧠</div>
+<div class="label">PERSONALITY</div>
+<div class="value">มีเหตุผลและคุยกันรู้เรื่อง</div>
+</div>
 
 <div class="item">
-
-<div class="icon">
-🧠
+<div class="icon">🤍</div>
+<div class="label">CARE</div>
+<div class="value">ดูแลและใส่ใจกัน</div>
 </div>
-
-<div class="label">
-PERSONALITY
-</div>
-
-<div class="value">
-มีเหตุผลและคุยกันรู้เรื่อง
-</div>
-
-</div>
-
-
 
 <div class="item">
-
-<div class="icon">
-🤍
+<div class="icon">🌷</div>
+<div class="label">HONESTY</div>
+<div class="value">จริงใจ ไม่เล่นกับความรู้สึก</div>
 </div>
-
-<div class="label">
-CARE
-</div>
-
-<div class="value">
-ดูแลและใส่ใจกัน
-</div>
-
-</div>
-
-
 
 <div class="item">
-
-<div class="icon">
-🌷
-</div>
-
-<div class="label">
-HONESTY
-</div>
-
-<div class="value">
-จริงใจ ไม่เล่นกับความรู้สึก
+<div class="icon">✨</div>
+<div class="label">VIBE</div>
+<div class="value">หวงหรือหึงได้นิดหน่อยแบบพอดี และเคารพขอบเขตกัน</div>
 </div>
 
 </div>
-
-
-
-<div class="item">
-
-<div class="icon">
-✨
-</div>
-
-<div class="label">
-VIBE
-</div>
-
-<div class="value">
-หวงหรือหึงได้นิดหน่อยแบบพอดี
-และเคารพขอบเขตกัน
-</div>
-
-</div>
-
-
-</div>
-
 </div>
 
 </section>
 
-
 </main>
 
-
-
 <footer>
-
 ✦ made with little bits of pink pearl ✦
-
 </footer>
-
 
 </div>
 
-
-
 <script>
 
-/* =========================
-   CLICK SOUND
-========================= */
-
-const clickSound =
-new Audio(
+const clickSound=new Audio(
 "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA="
 );
 
-clickSound.volume = 0.35;
-
+clickSound.volume=.35;
 
 function playClick(){
-
-  try{
-
-    clickSound.currentTime = 0;
-
-    clickSound
-      .play()
-      .catch(()=>{});
-
-  }
-
-  catch(e){}
-
+try{
+clickSound.currentTime=0;
+clickSound.play().catch(()=>{});
+}catch(e){}
 }
-
-
-
-/* =========================
-   ENTER WEBSITE
-========================= */
 
 function enterSite(){
-
-  playClick();
-
-  document
-    .getElementById("cover")
-    .style.display = "none";
-
-  document
-    .getElementById("site")
-    .style.display = "block";
-
-  showPage("home",false);
-
+playClick();
+document.getElementById("cover").style.display="none";
+document.getElementById("site").style.display="block";
+showPage("home",false);
 }
-
-
-
-/* =========================
-   CHANGE PAGE
-========================= */
 
 function showPage(id,sound=true){
 
-  if(sound){
-    playClick();
-  }
+if(sound)playClick();
 
+document.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
 
-  document
-    .querySelectorAll(".page")
-    .forEach(
-      page =>
-      page.classList.remove("active")
-    );
+document.querySelectorAll(".nav-btn")
+.forEach(b=>b.classList.remove("active"));
 
+document.getElementById(id).classList.add("active");
 
-  document
-    .querySelectorAll(".nav-btn")
-    .forEach(
-      button =>
-      button.classList.remove("active")
-    );
+document.querySelector('[data-page="'+id+'"]')
+.classList.add("active");
 
-
-  document
-    .getElementById(id)
-    .classList.add("active");
-
-
-  document
-    .querySelector(
-      '[data-page="' + id + '"]'
-    )
-    .classList.add("active");
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 }
 
+document.querySelectorAll(".nav-btn")
+.forEach(btn=>
+btn.addEventListener(
+"click",
+()=>showPage(btn.dataset.page)
+)
+);
 
+const particles=document.getElementById("particles"),
+symbols=["✦","✧","♡","⋆","·"];
 
-/* =========================
-   NAV BUTTONS
-========================= */
+for(let i=0;i<28;i++){
 
-document
-  .querySelectorAll(".nav-btn")
-  .forEach(
-    button => {
+const s=document.createElement("span");
 
-      button.addEventListener(
-        "click",
-        () => showPage(button.dataset.page)
-      );
+s.className="particle";
+s.textContent=
+symbols[Math.floor(Math.random()*symbols.length)];
 
-    }
-  );
+s.style.left=Math.random()*100+"%";
+s.style.animationDelay=Math.random()*7+"s";
+s.style.animationDuration=5+Math.random()*6+"s";
+s.style.fontSize=10+Math.random()*16+"px";
 
-
-
-/* =========================
-   FLOATING PARTICLES
-========================= */
-
-const particles =
-document.getElementById("particles");
-
-const symbols =
-[
-  "✦",
-  "✧",
-  "♡",
-  "⋆",
-  "·"
-];
-
-
-for(
-  let i=0;
-  i<28;
-  i++
-){
-
-  const s =
-  document.createElement("span");
-
-  s.className =
-  "particle";
-
-  s.textContent =
-  symbols[
-    Math.floor(
-      Math.random()*symbols.length
-    )
-  ];
-
-  s.style.left =
-  Math.random()*100 + "%";
-
-  s.style.animationDelay =
-  Math.random()*7 + "s";
-
-  s.style.animationDuration =
-  5 + Math.random()*6 + "s";
-
-  s.style.fontSize =
-  10 + Math.random()*16 + "px";
-
-  particles.appendChild(s);
-
+particles.appendChild(s);
 }
 
 </script>
