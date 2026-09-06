@@ -3,146 +3,1262 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khen's World ♡</title>
+
+<title>ดื้อดื้อ ♡</title>
+
 <style>
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    background:#111014;
-    color:#eee8e8;
-    font-family:Georgia,"Times New Roman",serif;
-    overflow-x:hidden;
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap');
+
+:root{
+  --bg:#09070b;
+  --card:#151018;
+  --pink:#f4b8d5;
+  --pink2:#ffd8e9;
+  --pearl:#fff8fc;
+  --muted:#bbaab5;
+  --line:rgba(255,210,232,.18);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(244,184,213,.10),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(255,248,252,.07),
+      transparent 25%
+    ),
+    var(--bg);
+
+  color:var(--pearl);
+  font-family:Kanit,sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+#particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+}
+
+.particle{
+  position:absolute;
+  opacity:.7;
+  animation:float 7s linear infinite;
+  color:var(--pink2);
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(110vh) rotate(0);
+    opacity:0;
   }
-  body:before{
-    content:"✦  ·  ✧  ·  ⋆  ·  ✦  ·  ✧";
-    position:fixed; inset:0;
-    opacity:.16; font-size:30px; letter-spacing:25px;
-    line-height:90px; pointer-events:none;
+
+  15%{
+    opacity:.7;
   }
-  .cover{
-    min-height:100vh; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; text-align:center;
-    padding:30px;
-    background:radial-gradient(circle at 50% 40%,#29232c 0,#151318 45%,#0c0b0e 100%);
+
+  85%{
+    opacity:.7;
   }
-  .cover h1{font-size:clamp(44px,12vw,92px); margin:8px 0; font-weight:400; letter-spacing:3px}
-  .cover p{color:#bdb3ba; letter-spacing:4px}
-  button{
-    border:1px solid #817681; background:#1b181d; color:#f4eef2;
-    border-radius:999px; padding:14px 25px; cursor:pointer;
-    letter-spacing:1px; transition:.25s;
+
+  100%{
+    transform:translateY(-15vh) rotate(180deg);
+    opacity:0;
   }
-  button:hover{transform:translateY(-2px);background:#29232c}
-  .site{display:none;max-width:1050px;margin:auto;padding:55px 22px 80px}
-  .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center}
-  .portrait{
-    min-height:470px;border:1px solid #514b53;border-radius:24px;
-    background:linear-gradient(145deg,#29232c,#151318);
-    display:flex;align-items:center;justify-content:center;
-    font-size:110px;box-shadow:0 20px 70px #0008;
+}
+
+
+/* =========================
+   COVER
+========================= */
+
+.cover{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px;
+  position:relative;
+  z-index:2;
+}
+
+.cover-box{
+  max-width:700px;
+  padding:45px 25px;
+
+  border:1px solid var(--line);
+  border-radius:28px;
+
+  background:rgba(21,16,24,.78);
+
+  backdrop-filter:blur(12px);
+
+  box-shadow:
+    0 20px 80px rgba(0,0,0,.4);
+}
+
+.small{
+  letter-spacing:5px;
+  color:var(--pink);
+  font-size:12px;
+}
+
+h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(42px,10vw,82px);
+  margin:14px 0 4px;
+}
+
+.subtitle{
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+.enter{
+  border:1px solid var(--pink);
+  color:var(--pink2);
+  background:transparent;
+
+  padding:13px 25px;
+
+  border-radius:999px;
+
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+.enter:hover{
+  background:rgba(244,184,213,.12);
+  transform:translateY(-2px);
+}
+
+
+/* =========================
+   WEBSITE
+========================= */
+
+#site{
+  display:none;
+  position:relative;
+  z-index:1;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  flex-wrap:wrap;
+
+  padding:13px 10px;
+
+  background:rgba(9,7,11,.84);
+
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid var(--line);
+}
+
+.nav-btn{
+  border:1px solid transparent;
+
+  background:transparent;
+
+  color:var(--muted);
+
+  padding:8px 12px;
+
+  border-radius:999px;
+
+  cursor:pointer;
+
+  transition:.2s;
+}
+
+.nav-btn:hover,
+.nav-btn.active{
+  color:var(--pink2);
+
+  border-color:var(--line);
+
+  background:rgba(244,184,213,.07);
+}
+
+
+/* =========================
+   PAGES
+========================= */
+
+.page{
+  display:none;
+
+  max-width:900px;
+
+  margin:auto;
+
+  min-height:calc(100vh - 70px);
+
+  padding:70px 20px 90px;
+
+  animation:pageIn .45s ease;
+}
+
+.page.active{
+  display:block;
+}
+
+@keyframes pageIn{
+  from{
+    opacity:0;
+    transform:translateY(12px);
   }
-  .tag{color:#aaa0a8;letter-spacing:3px}
-  h2{font-size:30px;font-weight:400;margin-bottom:8px}
-  .card{
-    border:1px solid #413c43;background:#19171b;
-    border-radius:20px;padding:24px;margin-top:22px;
+
+  to{
+    opacity:1;
+    transform:none;
   }
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  .item{padding:18px;border:1px solid #39343a;border-radius:16px;background:#141216}
-  .item b{display:block;margin-bottom:9px;font-weight:400;color:#d9ced6}
-  .polaroids{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-  .photo{height:170px;background:#29252b;border:8px solid #eee9e8;color:#39333a;display:flex;align-items:center;justify-content:center;transform:rotate(-2deg)}
-  .photo:nth-child(2){transform:rotate(2deg)} .photo:nth-child(3){transform:rotate(-1deg)}
-  .colors{display:flex;gap:12px}.swatch{width:58px;height:58px;border-radius:50%;border:1px solid #777}
-  .music{position:fixed;right:15px;bottom:15px;background:#19171b;border:1px solid #514b53;padding:10px 14px;border-radius:18px;font-size:13px}
-  @media(max-width:720px){
-    .hero,.grid{grid-template-columns:1fr}
-    .portrait{min-height:330px}
-    .polaroids{grid-template-columns:1fr}
-  }
+}
+
+.page-title{
+  font-family:"Playfair Display",serif;
+
+  font-size:clamp(34px,8vw,58px);
+
+  margin:0 0 8px;
+}
+
+.page-sub{
+  color:var(--muted);
+
+  margin:0 0 30px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+  background:rgba(21,16,24,.78);
+
+  border:1px solid var(--line);
+
+  border-radius:24px;
+
+  padding:24px;
+
+  margin:15px 0;
+
+  box-shadow:
+    0 15px 50px rgba(0,0,0,.18);
+}
+
+.grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(190px,1fr));
+
+  gap:15px;
+}
+
+.item{
+  border:1px solid var(--line);
+
+  border-radius:20px;
+
+  padding:20px;
+
+  background:rgba(255,255,255,.025);
+
+  transition:.25s;
+}
+
+.item:hover{
+  transform:translateY(-4px);
+
+  border-color:
+  rgba(244,184,213,.45);
+}
+
+.icon{
+  font-size:27px;
+}
+
+.label{
+  color:var(--pink);
+
+  font-size:13px;
+
+  margin-top:7px;
+}
+
+.value{
+  font-size:17px;
+
+  margin-top:3px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-btn{
+  display:block;
+
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  padding:15px 17px;
+
+  margin:10px 0;
+
+  background:rgba(255,255,255,.025);
+
+  transition:.2s;
+}
+
+.contact-btn:hover{
+  background:
+  rgba(244,184,213,.10);
+
+  transform:translateX(4px);
+}
+
+
+/* =========================
+   COLOR PALETTE
+========================= */
+
+.palette{
+  display:flex;
+
+  gap:14px;
+
+  flex-wrap:wrap;
+}
+
+.swatch{
+  min-width:130px;
+
+  height:100px;
+
+  border-radius:22px;
+
+  display:flex;
+
+  align-items:end;
+
+  padding:12px;
+
+  border:1px solid var(--line);
+
+  color:#33252e;
+}
+
+.pink{
+  background:#f4b8d5;
+}
+
+.pearlpink{
+  background:#ffd8e9;
+}
+
+.whitepearl{
+  background:#fff8fc;
+}
+
+
+/* =========================
+   GAME CODE
+========================= */
+
+.game-code{
+  font-family:monospace;
+
+  color:var(--pink2);
+
+  background:rgba(0,0,0,.3);
+
+  padding:3px 7px;
+
+  border-radius:7px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+
+  color:#8f7f89;
+
+  padding:25px;
+
+  border-top:1px solid var(--line);
+}
 </style>
 </head>
+
+
 <body>
 
+
+<!-- =========================
+     FLOATING DECORATION
+========================= -->
+
+<div id="particles"></div>
+
+
+<!-- =========================
+     COVER
+========================= -->
+
 <section class="cover" id="cover">
-  <div class="tag">✦ A LITTLE CORNER OF MY WORLD ✦</div>
-  <h1>Khen</h1>
-  <p>INFP · TYPE DEER · ♡</p>
-  <button onclick="enterWorld()">ENTER MY WORLD ♡</button>
+
+  <div class="cover-box">
+
+    <div class="small">
+      ✦ A LITTLE CORNER OF MY WORLD ✦
+    </div>
+
+    <h1>ดื้อดื้อ</h1>
+
+    <div class="subtitle">
+      INFP · MY SPEC ♡
+    </div>
+
+    <button
+      class="enter"
+      onclick="enterSite()">
+
+      ENTER MY WORLD ♡
+
+    </button>
+
+  </div>
+
 </section>
 
-<main class="site" id="site">
-  <section class="hero">
-    <div class="portrait">🦌</div>
-    <div>
-      <div class="tag">HELLO, I'M</div>
-      <h1>Khen</h1>
-      <p>พื้นที่เล็ก ๆ ที่รวมสิ่งที่เป็นฉันเอาไว้</p>
-      <div class="card">
-        <b>ABOUT ME</b>
-        <p>ชอบสร้างสรรค์สิ่งต่าง ๆ ฟังเพลง เล่นเกม วาดรูป
-        และเก็บช่วงเวลาเล็ก ๆ ที่ตัวเองชอบไว้ในโลกของตัวเอง</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="card">
-    <h2>PERSONALITY</h2>
-    <div class="grid">
-      <div class="item"><b>MBTI</b>INFP</div>
-      <div class="item"><b>TYPE</b>Deer 🦌</div>
-      <div class="item"><b>VIBE</b>quiet · dreamy · creative</div>
-      <div class="item"><b>MOOD</b>depends on the day ♡</div>
-    </div>
-  </section>
 
-  <section class="card">
-    <h2>THINGS I LIKE ♡</h2>
-    <div class="grid">
-      <div class="item">🎧 ฟังเพลง</div>
-      <div class="item">🎨 วาดรูป</div>
-      <div class="item">🎮 เล่นเกม</div>
-      <div class="item">📷 ถ่ายรูป</div>
-    </div>
-  </section>
+<!-- =========================
+     MAIN WEBSITE
+========================= -->
 
-  <section class="card">
-    <h2>PHOTO WALL</h2>
-    <div class="polaroids">
-      <div class="photo">YOUR PHOTO</div>
-      <div class="photo">YOUR PHOTO</div>
-      <div class="photo">YOUR PHOTO</div>
-    </div>
-    <p class="tag">เปลี่ยนช่องเหล่านี้เป็นรูปของหนูได้</p>
-  </section>
+<div id="site">
 
-  <section class="card">
-    <h2>MY COLORS</h2>
-    <div class="colors">
-      <div class="swatch" style="background:#17151a"></div>
-      <div class="swatch" style="background:#302832"></div>
-      <div class="swatch" style="background:#625663"></div>
-      <div class="swatch" style="background:#b9aab5"></div>
-      <div class="swatch" style="background:#e5dfe2"></div>
-    </div>
-  </section>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+<button
+class="nav-btn active"
+data-page="home">
+
+♡ Home
+
+</button>
+
+
+<button
+class="nav-btn"
+data-page="about">
+
+About Me
+
+</button>
+
+
+<button
+class="nav-btn"
+data-page="games">
+
+Games
+
+</button>
+
+
+<button
+class="nav-btn"
+data-page="contact">
+
+Contact
+
+</button>
+
+
+<button
+class="nav-btn"
+data-page="likes">
+
+Likes
+
+</button>
+
+
+<button
+class="nav-btn"
+data-page="spec">
+
+My Spec
+
+</button>
+
+</nav>
+
+
+
+<main>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section
+class="page active"
+id="home">
+
+<div class="small">
+WELCOME
+</div>
+
+<h2 class="page-title">
+My little world ♡
+</h2>
+
+<p class="page-sub">
+พื้นที่เล็ก ๆ ที่รวมสิ่งที่เป็นดื้อดื้อไว้ด้วยกัน
+</p>
+
+
+<div class="card">
+
+<h3>
+✦ Hello there
+</h3>
+
+<p>
+ยินดีต้อนรับเข้ามาในโลกเล็ก ๆ ของฉันนะ ✨
+<br>
+กดเมนูด้านบนเพื่อเดินดูทีละหน้าได้เลย
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT ME
+========================= -->
+
+<section
+class="page"
+id="about">
+
+<div class="small">
+ABOUT ME
+</div>
+
+<h2 class="page-title">
+A little about me
+</h2>
+
+<p class="page-sub">
+บางส่วนของตัวตนและบรรยากาศที่ฉันชอบ
+</p>
+
+
+<div class="grid">
+
+
+<div class="item">
+
+<div class="icon">
+🌷
+</div>
+
+<div class="label">
+PERSONALITY
+</div>
+
+<div class="value">
+INFP
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="icon">
+🌙
+</div>
+
+<div class="label">
+VIBE
+</div>
+
+<div class="value">
+Dreamy · Soft · Quiet
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="icon">
+🎨
+</div>
+
+<div class="label">
+CREATIVE
+</div>
+
+<div class="value">
+ชอบสร้างและแต่งอะไรที่เป็นตัวเอง
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     GAMES
+========================= -->
+
+<section
+class="page"
+id="games">
+
+<div class="small">
+GAMES
+</div>
+
+<h2 class="page-title">
+Things I play
+</h2>
+
+<p class="page-sub">
+เกม / เซิร์ฟที่อยากใส่ไว้ในโปรไฟล์
+</p>
+
+
+<div class="card">
+
+<h3>
+🎮 คลาสโทเปีย
+</h3>
+
+<p>
+Asia Server · Online
+</p>
+
+<p>
+Code:
+
+<span class="game-code">
+6p1ee2q
+</span>
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+💬 Discord
+</h3>
+
+<p>
+ใช้สำหรับติดต่อและพูดคุย
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+class="page"
+id="contact">
+
+<div class="small">
+CONTACT
+</div>
+
+<h2 class="page-title">
+Find me
+</h2>
+
+<p class="page-sub">
+กดที่ช่องเพื่อเปิดช่องทางติดต่อ
+</p>
+
+
+<a
+class="contact-btn"
+href="https://discord.com/"
+target="_blank"
+rel="noopener">
+
+💬
+
+<strong>
+Discord
+</strong>
+
+<br>
+
+<span style="color:var(--muted)">
+0199761651
+</span>
+
+</a>
+
+
+
+<a
+class="contact-btn"
+href="https://www.instagram.com/rak_rak_rak_rak_sa?stkn=enhqbW91em53Z2g2&utm_source=qr"
+target="_blank"
+rel="noopener">
+
+📷
+
+<strong>
+Instagram
+</strong>
+
+<br>
+
+<span style="color:var(--muted)">
+@rak_rak_rak_rak_sa
+</span>
+
+</a>
+
+</section>
+
+
+
+<!-- =========================
+     LIKES
+========================= -->
+
+<section
+class="page"
+id="likes">
+
+<div class="small">
+LIKES
+</div>
+
+<h2 class="page-title">
+Things I like ♡
+</h2>
+
+<p class="page-sub">
+สีที่ฉันชอบ
+</p>
+
+
+<div class="grid">
+
+
+<div class="item">
+
+<div class="icon">
+🎀
+</div>
+
+<div class="label">
+FAVORITE COLOR
+</div>
+
+<div class="value">
+สีชมพู
+</div>
+
+</div>
+
+
+
+<div class="item">
+
+<div class="icon">
+🫧
+</div>
+
+<div class="label">
+FAVORITE COLOR
+</div>
+
+<div class="value">
+สีมุก
+</div>
+
+</div>
+
+
+
+<div class="item">
+
+<div class="icon">
+🌸
+</div>
+
+<div class="label">
+FAVORITE COLOR
+</div>
+
+<div class="value">
+สีมุกชมพู
+</div>
+
+</div>
+
+
+
+<div class="item">
+
+<div class="icon">
+🤍
+</div>
+
+<div class="label">
+FAVORITE COLOR
+</div>
+
+<div class="value">
+สีขาวมุก
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+My pearl palette
+</h3>
+
+
+<div class="palette">
+
+
+<div class="swatch pink">
+Pink
+</div>
+
+
+<div class="swatch pearlpink">
+Pearl Pink
+</div>
+
+
+<div class="swatch whitepearl">
+White Pearl
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     MY SPEC + INTRODUCTION
+========================= -->
+
+<section
+class="page"
+id="spec">
+
+<div class="small">
+MY SPEC
+</div>
+
+<h2 class="page-title">
+My Spec ♡
+</h2>
+
+<p class="page-sub">
+ไม่กำหนดรูปร่างหรือหน้าตาเป็นแบบตายตัว
+</p>
+
+
+
+<!-- INTRODUCTION -->
+
+<div class="card">
+
+<h3>
+･*:.｡. .｡.:*･゜ﾟ･* แนะนำตัว ･*:.｡. .｡.:*･゜ﾟ･*
+</h3>
+
+<p>
+สวัสดีค่ะ หนูชื่อแคนนะคะ
+จะเรียกแอนก็ได้ค่ะ ♡
+</p>
+
+<p>
+หนูเป็นคนมาเลเซีย
+แต่พูดง่าย ๆ ว่าเป็นคนไทยสยามนี่แหละค่ะ
+</p>
+
+<p>
+หนูเป็นผู้ชายนะคะ
+เสียงอาจจะหวานนิดหน่อย
+แค่นี้แหละค่ะ อิอิ
+</p>
+
+</div>
+
+
+
+<!-- SPEC -->
+
+<div class="card">
+
+<div class="grid">
+
+
+<div class="item">
+
+<div class="icon">
+🧠
+</div>
+
+<div class="label">
+PERSONALITY
+</div>
+
+<div class="value">
+มีเหตุผลและคุยกันรู้เรื่อง
+</div>
+
+</div>
+
+
+
+<div class="item">
+
+<div class="icon">
+🤍
+</div>
+
+<div class="label">
+CARE
+</div>
+
+<div class="value">
+ดูแลและใส่ใจกัน
+</div>
+
+</div>
+
+
+
+<div class="item">
+
+<div class="icon">
+🌷
+</div>
+
+<div class="label">
+HONESTY
+</div>
+
+<div class="value">
+จริงใจ ไม่เล่นกับความรู้สึก
+</div>
+
+</div>
+
+
+
+<div class="item">
+
+<div class="icon">
+✨
+</div>
+
+<div class="label">
+VIBE
+</div>
+
+<div class="value">
+หวงหรือหึงได้นิดหน่อยแบบพอดี
+และเคารพขอบเขตกัน
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
 </main>
 
-<div class="music">♪ After Dark — Mr.Kitty</div>
 
-<audio id="music" loop>
-  <!-- ใส่ไฟล์เพลงที่มีสิทธิ์ใช้งานไว้ชื่อ after-dark.mp3 ในโฟลเดอร์เดียวกับไฟล์นี้ -->
-  <source src="after-dark.mp3" type="audio/mpeg">
-</audio>
+
+<footer>
+
+✦ made with little bits of pink pearl ✦
+
+</footer>
+
+
+</div>
+
+
 
 <script>
-function enterWorld(){
-  document.getElementById("cover").style.display="none";
-  document.getElementById("site").style.display="block";
-  const music=document.getElementById("music");
-  music.play().catch(()=>{});
-  window.scrollTo(0,0);
+
+/* =========================
+   CLICK SOUND
+========================= */
+
+const clickSound =
+new Audio(
+"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA="
+);
+
+clickSound.volume = 0.35;
+
+
+function playClick(){
+
+  try{
+
+    clickSound.currentTime = 0;
+
+    clickSound
+      .play()
+      .catch(()=>{});
+
+  }
+
+  catch(e){}
+
 }
+
+
+
+/* =========================
+   ENTER WEBSITE
+========================= */
+
+function enterSite(){
+
+  playClick();
+
+  document
+    .getElementById("cover")
+    .style.display = "none";
+
+  document
+    .getElementById("site")
+    .style.display = "block";
+
+  showPage("home",false);
+
+}
+
+
+
+/* =========================
+   CHANGE PAGE
+========================= */
+
+function showPage(id,sound=true){
+
+  if(sound){
+    playClick();
+  }
+
+
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      page =>
+      page.classList.remove("active")
+    );
+
+
+  document
+    .querySelectorAll(".nav-btn")
+    .forEach(
+      button =>
+      button.classList.remove("active")
+    );
+
+
+  document
+    .getElementById(id)
+    .classList.add("active");
+
+
+  document
+    .querySelector(
+      '[data-page="' + id + '"]'
+    )
+    .classList.add("active");
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+
+/* =========================
+   NAV BUTTONS
+========================= */
+
+document
+  .querySelectorAll(".nav-btn")
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => showPage(button.dataset.page)
+      );
+
+    }
+  );
+
+
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+const particles =
+document.getElementById("particles");
+
+const symbols =
+[
+  "✦",
+  "✧",
+  "♡",
+  "⋆",
+  "·"
+];
+
+
+for(
+  let i=0;
+  i<28;
+  i++
+){
+
+  const s =
+  document.createElement("span");
+
+  s.className =
+  "particle";
+
+  s.textContent =
+  symbols[
+    Math.floor(
+      Math.random()*symbols.length
+    )
+  ];
+
+  s.style.left =
+  Math.random()*100 + "%";
+
+  s.style.animationDelay =
+  Math.random()*7 + "s";
+
+  s.style.animationDuration =
+  5 + Math.random()*6 + "s";
+
+  s.style.fontSize =
+  10 + Math.random()*16 + "px";
+
+  particles.appendChild(s);
+
+}
+
 </script>
+
 </body>
 </html>
