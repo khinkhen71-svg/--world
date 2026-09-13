@@ -1,880 +1,1271 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Khen's World ♡</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ดื้อดื้อ</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap');
 
-:root{
-  --bg:#09070d;
-  --card:rgba(18,13,25,.82);
-  --pink:#f5afd2;
-  --pink2:#ffd9eb;
-  --white:#fff7fc;
-  --muted:#c3aeba;
-  --line:rgba(255,210,235,.25);
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:wght@500&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-  margin:0;
-  color:var(--white);
-  font-family:Kanit,sans-serif;
-  background:
-    linear-gradient(rgba(10,6,15,.45),rgba(10,6,15,.75)),
-    url("background.png") center/cover fixed;
-  min-height:100vh;
+    min-height:100vh;
+    font-family:'Kanit',sans-serif;
+    color:#fff;
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(circle at 20% 20%,rgba(180,70,170,.18),transparent 28%),
+        radial-gradient(circle at 80% 30%,rgba(255,80,180,.12),transparent 30%),
+        radial-gradient(circle at 50% 90%,rgba(100,40,160,.18),transparent 35%),
+        linear-gradient(135deg,#050308,#100713 45%,#08030d);
 }
 
-button,a{font:inherit}
+/* ---------------- BACKGROUND ---------------- */
 
-button{cursor:pointer}
+.bg{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.heart{
+    position:absolute;
+    width:13px;
+    height:13px;
+    background:rgba(255,150,220,.42);
+    transform:rotate(45deg);
+    border-radius:3px;
+    animation:float 9s linear infinite;
+    filter:blur(.2px);
+}
+
+.heart:before,
+.heart:after{
+    content:"";
+    position:absolute;
+    width:13px;
+    height:13px;
+    background:inherit;
+    border-radius:50%;
+}
+
+.heart:before{
+    left:-6px;
+}
+
+.heart:after{
+    top:-6px;
+}
+
+.h1{left:8%;animation-delay:0s;animation-duration:10s}
+.h2{left:20%;animation-delay:2s;animation-duration:13s}
+.h3{left:35%;animation-delay:4s;animation-duration:9s}
+.h4{left:52%;animation-delay:1s;animation-duration:12s}
+.h5{left:68%;animation-delay:5s;animation-duration:11s}
+.h6{left:82%;animation-delay:3s;animation-duration:14s}
+.h7{left:93%;animation-delay:6s;animation-duration:10s}
+
+@keyframes float{
+    0%{
+        transform:translateY(110vh) rotate(45deg);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    80%{
+        opacity:.5;
+    }
+
+    100%{
+        transform:translateY(-15vh) rotate(405deg);
+        opacity:0;
+    }
+}
+
+/* ---------------- MAIN ---------------- */
+
+.container{
+    position:relative;
+    z-index:2;
+    width:min(1000px,92%);
+    margin:auto;
+}
+
+/* ---------------- COVER ---------------- */
 
 .cover{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:25px;
-  background:rgba(8,5,13,.35);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
 }
 
 .cover-box{
-  padding:45px 35px;
-  border:1px solid var(--line);
-  border-radius:30px;
-  background:rgba(15,10,21,.78);
-  backdrop-filter:blur(15px);
-  box-shadow:0 20px 80px #0008;
+    width:min(700px,100%);
+    padding:50px 25px;
 }
 
-.cover small{
-  color:var(--pink);
-  letter-spacing:4px;
+.kao{
+    color:#f5b9e4;
+    font-size:14px;
+    line-height:1.8;
+    margin:12px 0;
+    word-break:break-word;
 }
 
-.cover h1{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(50px,12vw,90px);
-  margin:15px 0 5px;
+.small-kao{
+    font-size:12px;
+    opacity:.8;
 }
 
-.cover p{color:var(--muted)}
+.cover-title{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(45px,12vw,90px);
+    letter-spacing:5px;
+    color:#fff;
+    text-shadow:
+        0 0 20px rgba(255,150,230,.4),
+        0 0 50px rgba(190,70,180,.2);
+    margin:15px 0;
+}
+
+.cover-sub{
+    color:#dcb8d9;
+    letter-spacing:3px;
+    font-size:13px;
+}
 
 .enter{
-  margin-top:20px;
-  padding:13px 25px;
-  border-radius:999px;
-  border:1px solid var(--pink);
-  color:var(--pink2);
-  background:transparent;
+    display:inline-block;
+    margin-top:35px;
+    padding:13px 28px;
+    border:1px solid rgba(255,170,225,.45);
+    border-radius:30px;
+    color:#ffc5ec;
+    text-decoration:none;
+    background:rgba(255,150,220,.06);
+    transition:.3s;
+    cursor:pointer;
+    font-family:'Kanit',sans-serif;
 }
 
 .enter:hover{
-  background:#f5afd222;
+    background:rgba(255,150,220,.15);
+    transform:translateY(-3px);
+    box-shadow:0 0 25px rgba(255,130,220,.15);
 }
 
-#site{display:none}
+/* ---------------- NAV ---------------- */
 
 nav{
-  position:sticky;
-  top:0;
-  z-index:50;
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:7px;
-  padding:12px;
-  background:#0b0710dd;
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--line);
+    position:sticky;
+    top:12px;
+    z-index:20;
+    margin:15px auto 30px;
+    width:min(950px,94%);
+    padding:10px;
+    border:1px solid rgba(255,180,230,.16);
+    border-radius:25px;
+    background:rgba(10,4,15,.78);
+    backdrop-filter:blur(15px);
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:5px;
 }
 
-.nav{
-  border:1px solid transparent;
-  background:transparent;
-  color:var(--muted);
-  padding:8px 14px;
-  border-radius:999px;
+nav button{
+    background:transparent;
+    border:0;
+    color:#dcb8d9;
+    font-family:'Kanit',sans-serif;
+    font-size:13px;
+    padding:9px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.nav:hover,.nav.active{
-  color:var(--pink2);
-  border-color:var(--line);
-  background:#f5afd215;
+nav button:hover,
+nav button.active{
+    color:#ffd0ee;
+    background:rgba(255,150,220,.09);
 }
 
-.music{
-  position:fixed;
-  right:18px;
-  top:78px;
-  z-index:60;
+/* ---------------- PAGES ---------------- */
+
+.page{
+    display:none;
+    min-height:70vh;
+    padding:15px 0 70px;
+    animation:pageIn .45s ease;
 }
 
-.music-box{
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:12px 15px;
-  background:#120d19e8;
-  backdrop-filter:blur(14px);
-  min-width:170px;
+.page.active{
+    display:block;
 }
 
-.music-title{
-  color:var(--pink2);
-  font-size:14px;
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-.music button{
-  border:0;
-  background:transparent;
-  color:var(--pink);
-  font-size:18px;
+.page-title{
+    text-align:center;
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    color:#ffe0f5;
+    margin:20px 0 8px;
 }
 
-main{
-  max-width:1150px;
-  margin:auto;
-  padding:25px 18px 70px;
+.page-sub{
+    text-align:center;
+    color:#bfa9bd;
+    font-size:13px;
+    margin-bottom:30px;
 }
 
-.page{display:none}
-.page.active{display:block}
+/* ---------------- CARDS ---------------- */
 
 .card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:22px;
-  backdrop-filter:blur(12px);
-  box-shadow:0 15px 50px #0005;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,180,230,.055),
+            rgba(100,40,130,.045)
+        );
+
+    border:1px solid rgba(255,190,235,.13);
+    border-radius:24px;
+    padding:25px;
+    margin:15px 0;
+    box-shadow:0 15px 45px rgba(0,0,0,.25);
+    backdrop-filter:blur(8px);
 }
 
-.hero{
-  min-height:430px;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:18px;
-  align-items:center;
-  margin-bottom:18px;
+.card:hover{
+    border-color:rgba(255,190,235,.23);
 }
 
-.hero-text h1{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(42px,7vw,75px);
-  margin:8px 0;
+.card h2{
+    color:#ffd2ed;
+    font-size:20px;
+    margin-bottom:8px;
 }
 
-.hero-text p{
-  color:var(--muted);
-  font-size:18px;
+.card h3{
+    color:#ffc8e8;
+    font-size:16px;
+    margin-bottom:7px;
 }
 
-.hero-character{
-  height:400px;
-  display:flex;
-  align-items:end;
-  justify-content:center;
-  overflow:hidden;
-  border-radius:28px;
+.card p{
+    color:#d7c5d6;
+    line-height:1.9;
+    font-size:14px;
 }
 
-.hero-character img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
-  filter:drop-shadow(0 15px 25px #0008);
+.kao-divider{
+    text-align:center;
+    color:#e6a9d2;
+    opacity:.8;
+    margin:25px 0;
+    font-size:12px;
+    line-height:2;
 }
 
-.title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:15px;
+/* ---------------- HOME ---------------- */
+
+.welcome{
+    text-align:center;
+    padding:35px 20px;
 }
 
-.title h2{
-  margin:0;
-  font-family:"Playfair Display",serif;
+.welcome h2{
+    font-family:'Playfair Display',serif;
+    font-size:32px;
+    color:#ffe0f4;
+    margin-bottom:12px;
 }
 
-.more{
-  border:1px solid var(--line);
-  color:var(--pink2);
-  background:transparent;
-  padding:6px 12px;
-  border-radius:999px;
+.welcome p{
+    color:#cdb9ca;
+    font-size:14px;
+    line-height:2;
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
 }
 
-.grid3{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
+.mini-card{
+    min-height:170px;
 }
 
-.item{
-  border:1px solid var(--line);
-  border-radius:19px;
-  padding:18px;
-  background:#ffffff05;
-  transition:.2s;
+.mini-card a{
+    display:inline-block;
+    margin-top:10px;
 }
 
-.item:hover{
-  transform:translateY(-4px);
-  background:#f5afd210;
+/* ---------------- LINKS ---------------- */
+
+a{
+    color:#ffaddf !important;
+    text-decoration:none;
+    transition:.3s;
 }
 
-.icon{
-  font-size:28px;
-}
-
-.label{
-  color:var(--pink);
-  font-size:13px;
-  margin-top:7px;
-}
-
-.value{
-  margin-top:4px;
-}
-
-.section{
-  margin-top:18px;
-}
-
-.game-code{
-  display:inline-block;
-  margin-top:5px;
-  padding:6px 10px;
-  border-radius:10px;
-  background:#0005;
-  color:var(--pink2);
-  font-family:monospace;
+a:hover{
+    color:#ffd4ef !important;
+    text-shadow:0 0 12px rgba(255,160,220,.4);
 }
 
 .link{
-  display:block;
-  margin-top:10px;
-  padding:10px;
-  border:1px solid var(--line);
-  border-radius:13px;
-  color:var(--pink2);
-  text-align:center;
+    color:#ffaddf !important;
+    word-break:break-all;
 }
 
-.palette{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
+/* ---------------- GAMES ---------------- */
+
+.game{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:18px 0;
+    border-bottom:1px solid rgba(255,190,230,.08);
 }
 
-.color{
-  width:110px;
-  height:90px;
-  border-radius:20px;
-  border:1px solid var(--line);
-  display:flex;
-  align-items:end;
-  justify-content:center;
-  padding-bottom:10px;
-  color:#44313d;
+.game:last-child{
+    border-bottom:0;
 }
 
-.pink{background:#f5afd2}
-.pearl{background:#ffd9eb}
-.white{background:#fff7fc}
-
-.page-title{
-  font-family:"Playfair Display",serif;
-  font-size:55px;
-  margin:10px 0;
+.game-name{
+    color:#ffd0eb;
+    font-size:17px;
 }
 
-.sub{
-  color:var(--muted);
-  margin-bottom:25px;
+.game-info{
+    color:#bfaabd;
+    font-size:13px;
+    margin-top:4px;
 }
+
+.game-code{
+    color:#f1c4e2;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.game-button{
+    flex-shrink:0;
+    border:1px solid rgba(255,170,225,.25);
+    border-radius:20px;
+    padding:7px 15px;
+    color:#ffb8e2 !important;
+    background:rgba(255,140,210,.06);
+}
+
+/* ---------------- CONTACT ---------------- */
+
+.contact-item{
+    padding:17px 0;
+    border-bottom:1px solid rgba(255,190,230,.08);
+}
+
+.contact-item:last-child{
+    border-bottom:0;
+}
+
+.contact-name{
+    color:#ffd0ec;
+    font-size:16px;
+}
+
+.contact-user{
+    margin-top:4px;
+    color:#c8b5c6;
+    font-size:14px;
+}
+
+/* ---------------- LIKES ---------------- */
+
+.likes{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:center;
+}
+
+.like{
+    border:1px solid rgba(255,180,230,.16);
+    border-radius:30px;
+    padding:12px 20px;
+    color:#ffd0ed;
+    background:rgba(255,150,220,.04);
+}
+
+/* ---------------- SPEC ---------------- */
+
+.spec-intro{
+    text-align:center;
+    line-height:2;
+    color:#decddd;
+    font-size:14px;
+}
+
+.spec-list{
+    list-style:none;
+    margin-top:15px;
+}
+
+.spec-list li{
+    color:#d7c4d4;
+    padding:10px 5px;
+    border-bottom:1px solid rgba(255,190,230,.07);
+    line-height:1.7;
+}
+
+.spec-list li:before{
+    content:"｡･ﾟ･ ";
+    color:#f2acd7;
+}
+
+.note{
+    color:#ad98aa;
+    font-size:12px;
+    line-height:1.9;
+}
+
+/* ---------------- FOOTER ---------------- */
 
 footer{
-  text-align:center;
-  color:var(--muted);
-  padding:30px;
+    text-align:center;
+    padding:35px 10px 50px;
+    color:#9d879a;
+    font-size:12px;
+    line-height:2;
 }
 
-@media(max-width:800px){
-  .music{
-    position:relative;
-    top:auto;
-    right:auto;
-    padding:10px;
-  }
+/* ---------------- MOBILE ---------------- */
 
-  .music-box{margin:auto}
+@media(max-width:650px){
 
-  .hero{
-    grid-template-columns:1fr;
-  }
+    nav{
+        top:6px;
+    }
 
-  .hero-character{
-    height:330px;
-  }
+    nav button{
+        font-size:12px;
+        padding:8px 10px;
+    }
 
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+    .grid{
+        grid-template-columns:1fr;
+    }
 
-  .grid3{
-    grid-template-columns:1fr;
-  }
+    .card{
+        padding:20px;
+    }
+
+    .game{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .game-button{
+        align-self:flex-start;
+    }
+
+    .page-title{
+        font-size:32px;
+    }
+
+    .cover-box{
+        padding:30px 10px;
+    }
+
+    .kao{
+        font-size:11px;
+    }
 }
 
-@media(max-width:480px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  main{
-    padding:15px 10px 50px;
-  }
-}
 </style>
 </head>
 
 <body>
 
-<!-- หน้าเปิด -->
-<section class="cover" id="cover">
-  <div class="cover-box">
-    <small>✦ A LITTLE CORNER OF MY WORLD ✦</small>
-    <h1>ดื้อดื้อ</h1>
-    <p>INFP · MY SPEC ♡</p>
-    <button class="enter" onclick="enterWorld()">
-      ENTER MY WORLD ♡
-    </button>
-  </div>
-</section>
-
-<div id="site">
-
-<!-- เมนู -->
-<nav>
-  <button class="nav active" onclick="showPage('home',this)">♡ Home</button>
-  <button class="nav" onclick="showPage('about',this)">♙ About Me</button>
-  <button class="nav" onclick="showPage('games',this)">🎮 Games</button>
-  <button class="nav" onclick="showPage('contact',this)">✉ Contact</button>
-  <button class="nav" onclick="showPage('likes',this)">♥ Likes</button>
-  <button class="nav" onclick="showPage('spec',this)">☆ My Spec</button>
-</nav>
-
-<!-- เพลง -->
-<div class="music">
-  <div class="music-box">
-    <div class="music-title">🎵 My Music ♡</div>
-    <button onclick="toggleMusic()" id="musicButton">▶</button>
-    <audio id="music" loop>
-      <source src="🌚(1).m4a" type="audio/mp4">
-    </audio>
-  </div>
+<!-- FLOATING HEARTS -->
+<div class="bg">
+    <div class="heart h1"></div>
+    <div class="heart h2"></div>
+    <div class="heart h3"></div>
+    <div class="heart h4"></div>
+    <div class="heart h5"></div>
+    <div class="heart h6"></div>
+    <div class="heart h7"></div>
 </div>
 
-<main>
 
-<!-- ================= HOME ================= -->
+<!-- COVER -->
+
+<section class="cover" id="cover">
+
+    <div class="cover-box">
+
+        <div class="kao">
+            *･゜ﾟ･*:.｡..｡.:*･'(*ﾟ▽ﾟ*)'･*:.｡. .｡.:*･゜ﾟ･*
+        </div>
+
+        <div class="cover-sub">
+            A LITTLE CORNER OF MY WORLD
+        </div>
+
+        <h1 class="cover-title">
+            ดื้อดื้อ
+        </h1>
+
+        <div class="cover-sub">
+            INFP · MY SPEC
+        </div>
+
+        <div class="kao">
+            ｡･ﾟ･｡･ﾟ･｡･ﾟ･｡･ﾟ･｡･ﾟ･｡
+        </div>
+
+        <button class="enter" onclick="enterWorld()">
+            ENTER MY WORLD
+        </button>
+
+        <div class="kao small-kao">
+            (｡･ω･｡)ﾉ♡
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NAVIGATION -->
+
+<nav id="nav" style="display:none">
+
+    <button class="active" onclick="showPage('home',this)">
+        Home
+    </button>
+
+    <button onclick="showPage('about',this)">
+        About Me
+    </button>
+
+    <button onclick="showPage('games',this)">
+        Games
+    </button>
+
+    <button onclick="showPage('contact',this)">
+        Contact
+    </button>
+
+    <button onclick="showPage('likes',this)">
+        Likes
+    </button>
+
+    <button onclick="showPage('spec',this)">
+        My Spec
+    </button>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- HOME -->
+
 <section class="page active" id="home">
 
-  <div class="hero">
+    <div class="welcome">
 
-    <div class="card hero-text">
-      <small style="color:var(--pink)">
-        ✦ WELCOME TO MY WORLD ✦
-      </small>
+        <div class="kao">
+            *ੈ✩‧₊˚ ｡･ﾟ･｡･ﾟ･｡ ♡ ｡･ﾟ･｡･ﾟ･｡ ˚₊‧✩*ੈ
+        </div>
 
-      <h1>My little world ♡</h1>
+        <h2>
+            My little world
+        </h2>
 
-      <p>
-        พื้นที่เล็ก ๆ ที่รวมสิ่งที่เป็นฉันไว้ด้วยกัน
-        <br>
-        ยินดีต้อนรับเข้ามาในโลกของหนูนะ ✨
-      </p>
+        <p>
+            พื้นที่เล็ก ๆ ที่รวมสิ่งที่เป็น Khen ไว้ด้วยกัน
+        </p>
 
-      <p>
-        INFP · Dreamy · Soft · Quiet
-      </p>
+        <div class="kao">
+            ꒰ঌ♡໒꒱
+        </div>
+
     </div>
 
-    <div class="hero-character card">
-      <img src="character.png" alt="ตัวละคร">
-    </div>
-
-  </div>
-
-  <!-- GAMES -->
-  <div class="card section">
-    <div class="title">
-      <h2>🎮 GAMES</h2>
-      <button class="more" onclick="openFromHome('games')">
-        ดูทั้งหมด →
-      </button>
-    </div>
 
     <div class="grid">
 
-      <div class="item">
-        <div class="icon">🌷</div>
-        <div class="label">HEARTOPIA</div>
-        <div class="value">Asia Server · Online</div>
-        <span class="game-code">6p1ee2q</span>
-      </div>
+        <div class="card mini-card">
 
-      <div class="item">
-        <div class="icon">🎮</div>
-        <div class="label">ROBLOX</div>
-        <div class="value">โปรไฟล์ Roblox</div>
-      </div>
+            <h2>Games</h2>
 
-      <div class="item">
-        <div class="icon">⛏️</div>
-        <div class="label">MINECRAFT</div>
-        <div class="value">โปรไฟล์ Minecraft</div>
-      </div>
+            <p>
+                เกมที่เล่นและสิ่งต่าง ๆ
+                ที่อยู่ในโลกเล็ก ๆ ของหนู
+            </p>
 
-      <div class="item">
-        <div class="icon">☁️</div>
-        <div class="label">SKY</div>
-        <div class="value">Adventure · Online</div>
-      </div>
+            <div class="kao">
+                (｡･ω･｡)ﾉ♡
+            </div>
 
-    </div>
-  </div>
+            <button
+                class="enter"
+                onclick="showPage('games')">
+                ดู Games
+            </button>
 
-  <!-- CONTACT -->
-  <div class="card section">
-    <div class="title">
-      <h2>✉ CONTACT</h2>
-      <button class="more" onclick="openFromHome('contact')">
-        ดูทั้งหมด →
-      </button>
-    </div>
+        </div>
 
-    <div class="grid3">
 
-      <div class="item">
-        <div class="icon">💬</div>
-        <div class="label">DISCORD</div>
-        <div class="value">rak_saaaaaaaaaa</div>
-      </div>
+        <div class="card mini-card">
 
-      <div class="item">
-        <div class="icon">📷</div>
-        <div class="label">INSTAGRAM</div>
-        <div class="value">@rak_rak_rak_rak_sa</div>
-      </div>
+            <h2>Contact</h2>
 
-      <div class="item">
-        <div class="icon">♪</div>
-        <div class="label">TIKTOK</div>
-        <div class="value">@may_21i5</div>
-      </div>
+            <p>
+                ช่องทางสำหรับติดต่อหนู
+            </p>
 
-    </div>
-  </div>
+            <div class="kao">
+                ｡･ﾟ･｡･ﾟ･｡
+            </div>
 
-  <!-- LIKES -->
-  <div class="card section">
-    <div class="title">
-      <h2>♥ LIKES</h2>
-      <button class="more" onclick="openFromHome('likes')">
-        ดูทั้งหมด →
-      </button>
-    </div>
+            <button
+                class="enter"
+                onclick="showPage('contact')">
+                ดู Contact
+            </button>
 
-    <div class="grid">
+        </div>
 
-      <div class="item">
-        <div class="icon">🎀</div>
-        <div class="value">สีชมพู</div>
-      </div>
 
-      <div class="item">
-        <div class="icon">🫧</div>
-        <div class="value">สีมุก</div>
-      </div>
+        <div class="card mini-card">
 
-      <div class="item">
-        <div class="icon">🌸</div>
-        <div class="value">สีมุกชมพู</div>
-      </div>
+            <h2>Likes</h2>
 
-      <div class="item">
-        <div class="icon">🤍</div>
-        <div class="value">สีขาวมุก</div>
-      </div>
+            <p>
+                สีและสิ่งที่หนูชอบ
+            </p>
+
+            <div class="kao">
+                ♡
+            </div>
+
+            <button
+                class="enter"
+                onclick="showPage('likes')">
+                ดู Likes
+            </button>
+
+        </div>
+
+
+        <div class="card mini-card">
+
+            <h2>My Spec</h2>
+
+            <p>
+                ตัวตนและสิ่งที่หนูมองหา
+            </p>
+
+            <div class="kao">
+                ꒰ঌ♡໒꒱
+            </div>
+
+            <button
+                class="enter"
+                onclick="showPage('spec')">
+                ดู My Spec
+            </button>
+
+        </div>
 
     </div>
 
-    <div class="palette" style="margin-top:15px">
-      <div class="color pink">Pink</div>
-      <div class="color pearl">Pearl Pink</div>
-      <div class="color white">White Pearl</div>
-    </div>
-  </div>
 
-  <!-- MY SPEC -->
-  <div class="card section">
-    <div class="title">
-      <h2>☆ MY SPEC</h2>
-      <button class="more" onclick="openFromHome('spec')">
-        ดูทั้งหมด →
-      </button>
-    </div>
+    <div class="kao-divider">
 
-    <div class="grid">
-
-      <div class="item">
-        <div class="icon">🧠</div>
-        <div class="label">PERSONALITY</div>
-        <div class="value">มีเหตุผลและคุยกันรู้เรื่อง</div>
-      </div>
-
-      <div class="item">
-        <div class="icon">♡</div>
-        <div class="label">CARE</div>
-        <div class="value">ดูแลและใส่ใจกัน</div>
-      </div>
-
-      <div class="item">
-        <div class="icon">🌸</div>
-        <div class="label">HONESTY</div>
-        <div class="value">คนจริงใจ</div>
-      </div>
-
-      <div class="item">
-        <div class="icon">✦</div>
-        <div class="label">VIBE</div>
-        <div class="value">เป็นกันเอง</div>
-      </div>
+        *･゜ﾟ･*:.｡..｡.:*･'(*ﾟ▽ﾟ*)'･*:.｡. .｡.:*･゜ﾟ･*
 
     </div>
-  </div>
 
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- ABOUT -->
+
 <section class="page" id="about">
 
-  <div class="small">ABOUT ME</div>
-  <h1 class="page-title">A little about me</h1>
-  <p class="sub">บางส่วนของตัวตนและบรรยากาศที่ฉันชอบ ♡</p>
+    <h1 class="page-title">
+        About Me
+    </h1>
 
-  <div class="grid">
+    <p class="page-sub">
+        ｡･ﾟ･｡･ﾟ･｡ little things about me ｡･ﾟ･｡･ﾟ･｡
+    </p>
 
-    <div class="item">
-      <div class="icon">🌷</div>
-      <div class="label">PERSONALITY</div>
-      <div class="value">INFP</div>
+
+    <div class="card">
+
+        <h2>
+            Hello ♡
+        </h2>
+
+        <p>
+            หนูเป็นคนที่ชอบสร้างและแต่งอะไรต่าง ๆ
+            ให้มีความเป็นตัวเองอยู่ในนั้น
+        </p>
+
+        <div class="kao-divider">
+            (｡･ω･｡)ﾉ♡
+        </div>
+
+        <h3>
+            INFP
+        </h3>
+
+        <p>
+            Dreamy · Soft · Quiet
+        </p>
+
     </div>
 
-    <div class="item">
-      <div class="icon">🌙</div>
-      <div class="label">VIBE</div>
-      <div class="value">Dreamy · Soft · Quiet</div>
+
+    <div class="card">
+
+        <h2>
+            A little about me
+        </h2>
+
+        <ul class="spec-list">
+
+            <li>
+                เป็นคนชอบคิดและจินตนาการ
+            </li>
+
+            <li>
+                ชอบสิ่งสวย ๆ และบรรยากาศน่ารัก ๆ
+            </li>
+
+            <li>
+                ชอบสร้างและตกแต่งสิ่งต่าง ๆ
+            </li>
+
+            <li>
+                บางวันก็สาว ๆ บางวันก็แมน ๆ
+            </li>
+
+            <li>
+                เป็นคนที่มีหลายมุมในตัวเอง
+            </li>
+
+        </ul>
+
     </div>
 
-    <div class="item">
-      <div class="icon">🎨</div>
-      <div class="label">CREATIVE</div>
-      <div class="value">ชอบสร้างและแต่งอะไรที่เป็นตัวเอง</div>
-    </div>
 
-    <div class="item">
-      <div class="icon">🦌</div>
-      <div class="label">TYPE</div>
-      <div class="value">Deer</div>
+    <div class="kao-divider">
+        *ੈ✩‧₊˚ ｡･ﾟ･｡ ♡ ｡･ﾟ･｡ ˚₊‧✩*ੈ
     </div>
-
-  </div>
 
 </section>
 
 
-<!-- ================= GAMES ================= -->
+<!-- GAMES -->
+
 <section class="page" id="games">
 
-  <div class="small">GAMES</div>
-  <h1 class="page-title">Things I play</h1>
-  <p class="sub">เกมที่อยากใส่ไว้ในโลกของหนู ♡</p>
+    <h1 class="page-title">
+        Games
+    </h1>
 
-  <div class="grid">
+    <p class="page-sub">
+        ｡･ﾟ･｡･ﾟ･｡ games I play ｡･ﾟ･｡･ﾟ･｡
+    </p>
 
-    <div class="item">
-      <div class="icon">🌷</div>
-      <h3>Heartopia</h3>
-      <p>Asia Server · Online</p>
-      <span class="game-code">6p1ee2q</span>
+
+    <div class="card">
+
+        <div class="game">
+
+            <div>
+                <div class="game-name">
+                    Heartopia
+                </div>
+
+                <div class="game-info">
+                    Asia Server · Online
+                </div>
+
+                <div class="game-code">
+                    Code: 6p1ee2q
+                </div>
+            </div>
+
+            <a
+                class="game-button"
+                href="https://www.heartopia.com/"
+                target="_blank">
+                Open
+            </a>
+
+        </div>
+
+
+        <div class="game">
+
+            <div>
+
+                <div class="game-name">
+                    Roblox
+                </div>
+
+                <div class="game-info">
+                    Profile
+                </div>
+
+            </div>
+
+            <a
+                class="game-button"
+                href="https://www.roblox.com/share?code=c25d543b07db2a47ac0af4609d7359fd&type=Profile&source=ProfileShare&stamp=1788686703070"
+                target="_blank">
+                Open
+            </a>
+
+        </div>
+
+
+        <div class="game">
+
+            <div>
+
+                <div class="game-name">
+                    Minecraft
+                </div>
+
+                <div class="game-info">
+                    Profile · shikhen 9308
+                </div>
+
+            </div>
+
+            <a
+                class="game-button"
+                href="https://launch.minecraft.net/profile/shikhen%209308"
+                target="_blank">
+                Open
+            </a>
+
+        </div>
+
+
+        <div class="game">
+
+            <div>
+
+                <div class="game-name">
+                    Sky
+                </div>
+
+                <div class="game-info">
+                    Adventure · Online
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="item">
-      <div class="icon">🎮</div>
-      <h3>Roblox</h3>
-      <p>โปรไฟล์ Roblox ของฉัน</p>
-      <a class="link"
-      href="https://www.roblox.com/share?code=c25d543b07db2a47ac0af4609d7359fd&type=Profile&source=ProfileShare"
-      target="_blank">
-      ดูโปรไฟล์ ↗
-      </a>
-    </div>
 
-    <div class="item">
-      <div class="icon">⛏️</div>
-      <h3>Minecraft</h3>
-      <p>โปรไฟล์ Minecraft ของฉัน</p>
-      <a class="link"
-      href="https://launch.minecraft.net/profile/shikhen%209308"
-      target="_blank">
-      ดูโปรไฟล์ ↗
-      </a>
+    <div class="kao-divider">
+        ꒰ঌ♡໒꒱
     </div>
-
-    <div class="item">
-      <div class="icon">☁️</div>
-      <h3>Sky</h3>
-      <p>Adventure · Online ✦</p>
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- CONTACT -->
+
 <section class="page" id="contact">
 
-  <div class="small">CONTACT</div>
-  <h1 class="page-title">Find me</h1>
-  <p class="sub">ช่องทางติดต่อของหนู ♡</p>
+    <h1 class="page-title">
+        Contact
+    </h1>
 
-  <div class="grid3">
+    <p class="page-sub">
+        *･゜ﾟ･*:.｡..｡.:*･'(*ﾟ▽ﾟ*)'･*:.｡. .｡.:*･゜ﾟ･*
+    </p>
 
-    <a class="item" href="https://discord.com/" target="_blank">
-      <div class="icon">💬</div>
-      <div class="label">DISCORD</div>
-      <div class="value">rak_saaaaaaaaaa</div>
-    </a>
 
-    <a class="item"
-       href="https://www.instagram.com/rak_rak_rak_rak_sa/"
-       target="_blank">
-      <div class="icon">📷</div>
-      <div class="label">INSTAGRAM</div>
-      <div class="value">@rak_rak_rak_rak_sa</div>
-    </a>
+    <div class="card">
 
-    <a class="item"
-       href="https://www.tiktok.com/@may_21i5"
-       target="_blank">
-      <div class="icon">♪</div>
-      <div class="label">TIKTOK</div>
-      <div class="value">@may_21i5</div>
-    </a>
 
-  </div>
+        <div class="contact-item">
+
+            <div class="contact-name">
+                Discord
+            </div>
+
+            <div class="contact-user">
+                rak_saaaaaaaaaa
+            </div>
+
+            <a
+                class="link"
+                href="https://discord.com/"
+                target="_blank">
+                discord.com
+            </a>
+
+        </div>
+
+
+        <div class="contact-item">
+
+            <div class="contact-name">
+                Instagram
+            </div>
+
+            <div class="contact-user">
+                @rak_rak_rak_rak_sa
+            </div>
+
+            <a
+                class="link"
+                href="https://www.instagram.com/rak_rak_rak_rak_sa/"
+                target="_blank">
+                instagram.com
+            </a>
+
+        </div>
+
+
+        <div class="contact-item">
+
+            <div class="contact-name">
+                TikTok
+            </div>
+
+            <div class="contact-user">
+                @may_21i5
+            </div>
+
+            <a
+                class="link"
+                href="https://www.tiktok.com/@may_21i5"
+                target="_blank">
+                tiktok.com
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="kao-divider">
+        (｡･ω･｡)ﾉ♡
+    </div>
 
 </section>
 
 
-<!-- ================= LIKES ================= -->
+<!-- LIKES -->
+
 <section class="page" id="likes">
 
-  <div class="small">LIKES</div>
-  <h1 class="page-title">Things I like ♡</h1>
-  <p class="sub">โทนสีที่หนูชอบ</p>
+    <h1 class="page-title">
+        Likes
+    </h1>
 
-  <div class="grid">
+    <p class="page-sub">
+        ｡･ﾟ･｡･ﾟ･｡ things I like ｡･ﾟ･｡･ﾟ･｡
+    </p>
 
-    <div class="item">
-      <div class="icon">🎀</div>
-      <div class="label">FAVORITE COLOR</div>
-      <div class="value">สีชมพู</div>
+
+    <div class="card">
+
+        <div class="likes">
+
+            <div class="like">
+                สีชมพู
+            </div>
+
+            <div class="like">
+                สีมุก
+            </div>
+
+            <div class="like">
+                สีมุกชมพู
+            </div>
+
+            <div class="like">
+                สีขาวมุก
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="item">
-      <div class="icon">🫧</div>
-      <div class="label">FAVORITE COLOR</div>
-      <div class="value">สีมุก</div>
-    </div>
 
-    <div class="item">
-      <div class="icon">🌸</div>
-      <div class="label">FAVORITE COLOR</div>
-      <div class="value">สีมุกชมพู</div>
-    </div>
+    <div class="kao-divider">
 
-    <div class="item">
-      <div class="icon">🤍</div>
-      <div class="label">FAVORITE COLOR</div>
-      <div class="value">สีขาวมุก</div>
-    </div>
+        *ੈ✩‧₊˚  ♡  ˚₊‧✩*ੈ
 
-  </div>
+    </div>
 
 </section>
 
 
-<!-- ================= SPEC ================= -->
+<!-- MY SPEC -->
+
 <section class="page" id="spec">
 
-  <div class="small">MY SPEC</div>
-  <h1 class="page-title">My Spec ♡</h1>
-  <p class="sub">สิ่งที่หนูชอบในคนที่จะเข้ากันได้</p>
+    <h1 class="page-title">
+        My Spec
+    </h1>
 
-  <div class="card">
-
-    <h3>･*:.｡. .｡.:*･</h3>
-
-    <p>
-      สวัสดีค่ะ หนูชื่อแคนนะคะ
-      จะเรียกแอนก็ได้ค่ะ ♡
+    <p class="page-sub">
+        ꒰ঌ♡໒꒱ what I value ꒰ঌ♡໒꒱
     </p>
 
-    <p>
-      หนูเป็นคนมาเลเซีย แต่พูดง่าย ๆ
-      ว่าเป็นคนไทยสยามนี่แหละค่ะ
-    </p>
 
-    <p>
-      หนูเป็นผู้ชายนะคะ เสียงอาจจะหวานนิดหน่อย
-      แค่นี้แหละค่ะ อิอิ
-    </p>
+    <div class="card">
 
-  </div>
+        <div class="spec-intro">
 
-  <div class="grid" style="margin-top:15px">
+            สวัสดีค่ะ หนูชื่อแคนนะคะ
+            จะเรียกแอนก็ได้ค่ะ ♡
 
-    <div class="item">
-      <div class="icon">🧠</div>
-      <div class="label">PERSONALITY</div>
-      <div class="value">มีเหตุผลและคุยกันรู้เรื่อง</div>
+            <br>
+
+            หนูเป็นคนมาเลเซีย
+            แต่พูดง่าย ๆ ว่าเป็นคนไทยสยามนี่แหละค่ะ
+
+            <br>
+
+            หนูเป็นผู้ชายนะคะ
+            เสียงอาจจะหวานนิดหน่อย
+            แค่นี้แหละค่ะ อิอิ
+
+        </div>
+
     </div>
 
-    <div class="item">
-      <div class="icon">♡</div>
-      <div class="label">CARE</div>
-      <div class="value">ดูแลและใส่ใจกัน</div>
+
+    <div class="card">
+
+        <h2>
+            เรื่องรูปร่างและหน้าตา
+        </h2>
+
+        <p>
+            ไม่กำหนดรูปร่างหรือหน้าตาเป็นแบบตายตัว
+            สำหรับหนูสิ่งสำคัญกว่าคือการคุยกันรู้เรื่อง
+            และเข้ากันได้ดี
+        </p>
+
     </div>
 
-    <div class="item">
-      <div class="icon">🌸</div>
-      <div class="label">HONESTY</div>
-      <div class="value">คนจริงใจ ไม่เล่นกับความรู้สึก</div>
+
+    <div class="card">
+
+        <h2>
+            สิ่งที่หนูชอบในคน
+        </h2>
+
+        <ul class="spec-list">
+
+            <li>
+                มีเหตุผลและคุยกันรู้เรื่อง
+            </li>
+
+            <li>
+                ดูแลและใส่ใจกัน
+            </li>
+
+            <li>
+                เป็นคนจริงใจ
+            </li>
+
+            <li>
+                ไม่เล่นกับความรู้สึก
+            </li>
+
+            <li>
+                เป็นกันเองและคุยง่าย
+            </li>
+
+            <li>
+                ไม่ชอบคนเจ้าชู้
+            </li>
+
+            <li>
+                ไม่ชอบให้เราถูกอยู่ฝ่ายเดียว
+            </li>
+
+        </ul>
+
     </div>
 
-    <div class="item">
-      <div class="icon">✦</div>
-      <div class="label">VIBE</div>
-      <div class="value">เป็นกันเอง</div>
+
+    <div class="card">
+
+        <h2>
+            สิ่งสำคัญที่สุด
+        </h2>
+
+        <p>
+            สำหรับหนูไม่จำเป็นต้องเพอร์เฟกต์
+            ขอแค่เป็นคนที่จริงใจ คุยกันได้
+            เคารพกัน และดูแลความรู้สึกของกันและกัน
+        </p>
+
+        <div class="kao-divider">
+            ｡･ﾟ･｡･ﾟ･｡･ﾟ･｡･ﾟ･｡
+            <br>
+            (｡･ω･｡)ﾉ♡
+            <br>
+            ｡･ﾟ･｡･ﾟ･｡･ﾟ･｡･ﾟ･｡
+        </div>
+
     </div>
 
-  </div>
+
+    <div class="card">
+
+        <p class="note">
+            My Spec เป็นเพียงสิ่งที่หนูชอบและให้ความสำคัญ
+            ไม่ได้หมายความว่าทุกอย่างต้องตรงตามนี้ทั้งหมดนะคะ
+        </p>
+
+    </div>
+
+
+    <div class="kao-divider">
+
+        *･゜ﾟ･*:.｡..｡.:*･'(*ﾟ▽ﾟ*)'･*:.｡. .｡.:*･゜ﾟ･*
+
+    </div>
 
 </section>
+
+
+<footer>
+
+    <div class="kao">
+        ｡･ﾟ･｡･ﾟ･｡･ﾟ･｡･ﾟ･｡･ﾟ･｡
+    </div>
+
+    ✦ made with little bits of pink pearl ✦
+
+    <div class="kao">
+        ꒰ঌ♡໒꒱
+    </div>
+
+</footer>
 
 </main>
 
-<footer>
-  ✦ made with little bits of pink pearl ✦
-</footer>
-
-</div>
 
 <script>
 
-const music=document.getElementById("music");
-const musicButton=document.getElementById("musicButton");
+/* ---------------- ENTER WORLD ---------------- */
 
 function enterWorld(){
 
-  document.getElementById("cover").style.display="none";
-  document.getElementById("site").style.display="block";
+    document.getElementById("cover").style.display="none";
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+    document.getElementById("nav").style.display="flex";
 
-}
-
-function toggleMusic(){
-
-  if(music.paused){
-
-    music.play()
-    .then(()=>{
-      musicButton.textContent="Ⅱ";
-    })
-    .catch(()=>{
-      alert("กดเล่นเพลงอีกครั้งนะคะ 🎵");
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
     });
 
-  }else{
-
-    music.pause();
-    musicButton.textContent="▶";
-
-  }
-
 }
 
-function showPage(id,button){
 
-  document.querySelectorAll(".page")
-    .forEach(p=>p.classList.remove("active"));
+/* ---------------- PAGE SYSTEM ---------------- */
 
-  document.getElementById(id)
-    .classList.add("active");
+function showPage(page,button){
 
-  document.querySelectorAll(".nav")
-    .forEach(n=>n.classList.remove("active"));
+    document.querySelectorAll(".page").forEach(function(p){
 
-  if(button){
-    button.classList.add("active");
-  }else{
+        p.classList.remove("active");
 
-    document.querySelectorAll(".nav")
-      .forEach(n=>{
-        if(n.getAttribute("onclick") &&
-           n.getAttribute("onclick").includes("'"+id+"'")){
-          n.classList.add("active");
-        }
-      });
+    });
 
-  }
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+    const target=document.getElementById(page);
 
-}
+    if(target){
+        target.classList.add("active");
+    }
 
-function openFromHome(id){
-  showPage(id);
+
+    document.querySelectorAll("nav button").forEach(function(b){
+
+        b.classList.remove("active");
+
+    });
+
+
+    if(button){
+        button.classList.add("active");
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
 }
 
 </script>
 
 </body>
+</html>
