@@ -4,31 +4,878 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Khen's World ♡</title>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap');
-:root{--bg:#09070b;--card:#151018;--pink:#f4b8d5;--pink2:#ffd8e9;--pearl:#fff8fc;--muted:#bbaab5;--line:rgba(255,210,232,.18)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 20% 10%,rgba(244,184,213,.1),transparent 28%),radial-gradient(circle at 85% 80%,rgba(255,248,252,.07),transparent 25%),var(--bg);color:var(--pearl);font-family:Kanit,sans-serif;min-height:100vh;overflow-x:hidden}a{color:inherit;text-decoration:none}
-#particles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}.particle{position:absolute;opacity:.7;animation:float 7s linear infinite;color:var(--pink2)}@keyframes float{0%{transform:translateY(110vh) rotate(0);opacity:0}15%{opacity:.7}85%{opacity:.7}100%{transform:translateY(-15vh) rotate(180deg);opacity:0}}
-.cover{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;position:relative;z-index:2}.cover-box{max-width:700px;padding:45px 25px;border:1px solid var(--line);border-radius:28px;background:rgba(21,16,24,.78);backdrop-filter:blur(12px);box-shadow:0 20px 80px rgba(0,0,0,.4)}.small{letter-spacing:5px;color:var(--pink);font-size:12px}h1{font-family:"Playfair Display",serif;font-size:clamp(42px,10vw,82px);margin:14px 0 4px}.subtitle{color:var(--muted);margin-bottom:28px}.enter{border:1px solid var(--pink);color:var(--pink2);background:transparent;padding:13px 25px;border-radius:999px;cursor:pointer;transition:.25s}.enter:hover{background:rgba(244,184,213,.12);transform:translateY(-2px)}
-#site{display:none;position:relative;z-index:1}nav{position:sticky;top:0;z-index:10;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:13px 10px;background:rgba(9,7,11,.84);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav-btn{border:1px solid transparent;background:transparent;color:var(--muted);padding:8px 12px;border-radius:999px;cursor:pointer}.nav-btn:hover,.nav-btn.active{color:var(--pink2);border-color:var(--line);background:rgba(244,184,213,.07)}
-.page{display:none;max-width:900px;margin:auto;min-height:calc(100vh - 70px);padding:70px 20px 90px;animation:pageIn .45s ease}.page.active{display:block}@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}.page-title{font-family:"Playfair Display",serif;font-size:clamp(34px,8vw,58px);margin:0 0 8px}.page-sub{color:var(--muted);margin:0 0 30px}.card{background:rgba(21,16,24,.78);border:1px solid var(--line);border-radius:24px;padding:24px;margin:15px 0;box-shadow:0 15px 50px rgba(0,0,0,.18)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}.item{border:1px solid var(--line);border-radius:20px;padding:20px;background:rgba(255,255,255,.025);transition:.25s}.item:hover{transform:translateY(-4px);border-color:rgba(244,184,213,.45)}.icon{font-size:27px}.label{color:var(--pink);font-size:13px;margin-top:7px}.value{font-size:17px;margin-top:3px}.contact-btn{display:block;border:1px solid var(--line);border-radius:18px;padding:15px 17px;margin:10px 0;background:rgba(255,255,255,.025);transition:.2s}.contact-btn:hover{background:rgba(244,184,213,.1);transform:translateX(4px)}.palette{display:flex;gap:14px;flex-wrap:wrap}.swatch{min-width:130px;height:100px;border-radius:22px;display:flex;align-items:end;padding:12px;border:1px solid var(--line);color:#33252e}.pink{background:#f4b8d5}.pearlpink{background:#ffd8e9}.whitepearl{background:#fff8fc}.game-code{font-family:monospace;color:var(--pink2);background:rgba(0,0,0,.3);padding:3px 7px;border-radius:7px}footer{text-align:center;color:#8f7f89;padding:25px;border-top:1px solid var(--line)}
 
-.music{position:fixed;right:16px;top:16px;z-index:20}
-.music button{border:1px solid var(--line);background:rgba(21,16,24,.86);color:var(--pink2);padding:9px 13px;border-radius:999px;cursor:pointer;backdrop-filter:blur(10px)}
-#characterPopup{position:fixed;right:18px;bottom:18px;z-index:19;width:min(260px,72vw);padding:10px;display:none;animation:popupIn .45s ease}
-#characterPopup.show{display:block}
-.character-card{position:relative;background:rgba(21,16,24,.92);border:1px solid var(--line);border-radius:24px;padding:12px;box-shadow:0 18px 60px rgba(0,0,0,.45);backdrop-filter:blur(12px)}
-.character-card img{display:block;width:100%;border-radius:18px}
-.bubble{background:rgba(255,248,252,.96);color:#3b2c35;border-radius:18px;padding:10px 12px;margin-bottom:9px;text-align:center;font-size:14px}
-.close-char{position:absolute;right:18px;top:112px;border:0;background:rgba(9,7,11,.72);color:#fff;border-radius:50%;width:28px;height:28px;cursor:pointer}
-.reopen-char{position:fixed;right:16px;bottom:16px;z-index:18;border:1px solid var(--line);background:rgba(21,16,24,.88);color:var(--pink2);width:42px;height:42px;border-radius:50%;cursor:pointer;display:none}
-.reopen-char.show{display:block}
-@keyframes popupIn{from{opacity:0;transform:translateX(30px) translateY(12px)}to{opacity:1;transform:none}}
+:root{
+  --bg:#09070d;
+  --card:rgba(18,13,25,.82);
+  --pink:#f5afd2;
+  --pink2:#ffd9eb;
+  --white:#fff7fc;
+  --muted:#c3aeba;
+  --line:rgba(255,210,235,.25);
+}
 
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 12% 35%,rgba(255,180,220,.16),transparent 22%),radial-gradient(circle at 88% 30%,rgba(180,150,255,.13),transparent 25%),radial-gradient(circle at 50% 100%,rgba(255,190,225,.10),transparent 30%);}
-.site-shell{position:relative;max-width:1120px;margin:auto;padding:0 18px 40px}.home-overview{display:grid;grid-template-columns:1fr;gap:16px}.home-hero{min-height:260px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:center}.home-hero .welcome-art{min-height:220px;border:1px solid var(--line);border-radius:28px;background:radial-gradient(circle at 75% 35%,rgba(244,184,213,.20),transparent 25%),linear-gradient(135deg,rgba(255,255,255,.04),rgba(244,184,213,.06));position:relative;overflow:hidden}.home-hero .welcome-art:before,.home-hero .welcome-art:after{position:absolute;content:"✦  ♡  ✧  ⋆  ♡  ✦";color:rgba(255,216,233,.55);font-size:24px;letter-spacing:18px;animation:twinkle 4s ease-in-out infinite}.home-hero .welcome-art:before{top:24px;left:18px}.home-hero .welcome-art:after{bottom:24px;right:18px;animation-delay:1.4s}@keyframes twinkle{50%{opacity:.25;transform:translateY(-5px)}}.home-hero .mini-doll{position:absolute;right:18px;bottom:-12px;font-size:105px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35))}.home-hero .welcome-copy{padding:8px 8px 8px 0}.home-hero .welcome-copy h2{font-family:"Playfair Display",serif;font-size:clamp(40px,7vw,66px);margin:5px 0}.home-section{background:rgba(21,16,24,.72);border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:0 15px 50px rgba(0,0,0,.18)}.home-section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.home-section-head h3{margin:0;color:var(--pink2);font-size:22px}.more-btn{border:1px solid var(--line);background:transparent;color:var(--pink2);padding:7px 12px;border-radius:999px;cursor:pointer}.home-games{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.home-games .item,.home-contacts .item{margin:0}.home-contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.home-spec{display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:12px}.home-spec .item{min-height:105px}.home-spec .intro{grid-row:span 1}.home-likes{display:flex;gap:12px;flex-wrap:wrap}.home-likes .item{flex:1 1 150px}.doll-note{color:var(--muted);font-size:13px;margin-top:8px}@media(max-width:760px){.home-hero{grid-template-columns:1fr}.home-hero .welcome-art{min-height:150px}.home-games{grid-template-columns:repeat(2,1fr)}.home-contacts{grid-template-columns:1fr}.home-spec{grid-template-columns:1fr 1fr}.home-spec .intro{grid-column:1/-1}.site-shell{padding:0 10px 30px}}
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  color:var(--white);
+  font-family:Kanit,sans-serif;
+  background:
+    linear-gradient(rgba(10,6,15,.45),rgba(10,6,15,.75)),
+    url("background.png") center/cover fixed;
+  min-height:100vh;
+}
+
+button,a{font:inherit}
+
+button{cursor:pointer}
+
+.cover{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:25px;
+  background:rgba(8,5,13,.35);
+}
+
+.cover-box{
+  padding:45px 35px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  background:rgba(15,10,21,.78);
+  backdrop-filter:blur(15px);
+  box-shadow:0 20px 80px #0008;
+}
+
+.cover small{
+  color:var(--pink);
+  letter-spacing:4px;
+}
+
+.cover h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(50px,12vw,90px);
+  margin:15px 0 5px;
+}
+
+.cover p{color:var(--muted)}
+
+.enter{
+  margin-top:20px;
+  padding:13px 25px;
+  border-radius:999px;
+  border:1px solid var(--pink);
+  color:var(--pink2);
+  background:transparent;
+}
+
+.enter:hover{
+  background:#f5afd222;
+}
+
+#site{display:none}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:7px;
+  padding:12px;
+  background:#0b0710dd;
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav{
+  border:1px solid transparent;
+  background:transparent;
+  color:var(--muted);
+  padding:8px 14px;
+  border-radius:999px;
+}
+
+.nav:hover,.nav.active{
+  color:var(--pink2);
+  border-color:var(--line);
+  background:#f5afd215;
+}
+
+.music{
+  position:fixed;
+  right:18px;
+  top:78px;
+  z-index:60;
+}
+
+.music-box{
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:12px 15px;
+  background:#120d19e8;
+  backdrop-filter:blur(14px);
+  min-width:170px;
+}
+
+.music-title{
+  color:var(--pink2);
+  font-size:14px;
+}
+
+.music button{
+  border:0;
+  background:transparent;
+  color:var(--pink);
+  font-size:18px;
+}
+
+main{
+  max-width:1150px;
+  margin:auto;
+  padding:25px 18px 70px;
+}
+
+.page{display:none}
+.page.active{display:block}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:22px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 15px 50px #0005;
+}
+
+.hero{
+  min-height:430px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:18px;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.hero-text h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(42px,7vw,75px);
+  margin:8px 0;
+}
+
+.hero-text p{
+  color:var(--muted);
+  font-size:18px;
+}
+
+.hero-character{
+  height:400px;
+  display:flex;
+  align-items:end;
+  justify-content:center;
+  overflow:hidden;
+  border-radius:28px;
+}
+
+.hero-character img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 15px 25px #0008);
+}
+
+.title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.title h2{
+  margin:0;
+  font-family:"Playfair Display",serif;
+}
+
+.more{
+  border:1px solid var(--line);
+  color:var(--pink2);
+  background:transparent;
+  padding:6px 12px;
+  border-radius:999px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.item{
+  border:1px solid var(--line);
+  border-radius:19px;
+  padding:18px;
+  background:#ffffff05;
+  transition:.2s;
+}
+
+.item:hover{
+  transform:translateY(-4px);
+  background:#f5afd210;
+}
+
+.icon{
+  font-size:28px;
+}
+
+.label{
+  color:var(--pink);
+  font-size:13px;
+  margin-top:7px;
+}
+
+.value{
+  margin-top:4px;
+}
+
+.section{
+  margin-top:18px;
+}
+
+.game-code{
+  display:inline-block;
+  margin-top:5px;
+  padding:6px 10px;
+  border-radius:10px;
+  background:#0005;
+  color:var(--pink2);
+  font-family:monospace;
+}
+
+.link{
+  display:block;
+  margin-top:10px;
+  padding:10px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  color:var(--pink2);
+  text-align:center;
+}
+
+.palette{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.color{
+  width:110px;
+  height:90px;
+  border-radius:20px;
+  border:1px solid var(--line);
+  display:flex;
+  align-items:end;
+  justify-content:center;
+  padding-bottom:10px;
+  color:#44313d;
+}
+
+.pink{background:#f5afd2}
+.pearl{background:#ffd9eb}
+.white{background:#fff7fc}
+
+.page-title{
+  font-family:"Playfair Display",serif;
+  font-size:55px;
+  margin:10px 0;
+}
+
+.sub{
+  color:var(--muted);
+  margin-bottom:25px;
+}
+
+footer{
+  text-align:center;
+  color:var(--muted);
+  padding:30px;
+}
+
+@media(max-width:800px){
+  .music{
+    position:relative;
+    top:auto;
+    right:auto;
+    padding:10px;
+  }
+
+  .music-box{margin:auto}
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero-character{
+    height:330px;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .grid3{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:480px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  main{
+    padding:15px 10px 50px;
+  }
+}
 </style>
 </head>
+
 <body>
+
+<!-- หน้าเปิด -->
+<section class="cover" id="cover">
+  <div class="cover-box">
+    <small>✦ A LITTLE CORNER OF MY WORLD ✦</small>
+    <h1>ดื้อดื้อ</h1>
+    <p>INFP · MY SPEC ♡</p>
+    <button class="enter" onclick="enterWorld()">
+      ENTER MY WORLD ♡
+    </button>
+  </div>
+</section>
+
+<div id="site">
+
+<!-- เมนู -->
+<nav>
+  <button class="nav active" onclick="showPage('home',this)">♡ Home</button>
+  <button class="nav" onclick="showPage('about',this)">♙ About Me</button>
+  <button class="nav" onclick="showPage('games',this)">🎮 Games</button>
+  <button class="nav" onclick="showPage('contact',this)">✉ Contact</button>
+  <button class="nav" onclick="showPage('likes',this)">♥ Likes</button>
+  <button class="nav" onclick="showPage('spec',this)">☆ My Spec</button>
+</nav>
+
+<!-- เพลง -->
 <div class="music">
-  <audio id="bgMusic" preload="auto" loop src="data:audio/mp4;base64,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
+  <div class="music-box">
+    <div class="music-title">🎵 My Music ♡</div>
+    <button onclick="toggleMusic()" id="musicButton">▶</button>
+    <audio id="music" loop>
+      <source src="🌚(1).m4a" type="audio/mp4">
+    </audio>
+  </div>
+</div>
+
+<main>
+
+<!-- ================= HOME ================= -->
+<section class="page active" id="home">
+
+  <div class="hero">
+
+    <div class="card hero-text">
+      <small style="color:var(--pink)">
+        ✦ WELCOME TO MY WORLD ✦
+      </small>
+
+      <h1>My little world ♡</h1>
+
+      <p>
+        พื้นที่เล็ก ๆ ที่รวมสิ่งที่เป็นฉันไว้ด้วยกัน
+        <br>
+        ยินดีต้อนรับเข้ามาในโลกของหนูนะ ✨
+      </p>
+
+      <p>
+        INFP · Dreamy · Soft · Quiet
+      </p>
+    </div>
+
+    <div class="hero-character card">
+      <img src="character.png" alt="ตัวละคร">
+    </div>
+
+  </div>
+
+  <!-- GAMES -->
+  <div class="card section">
+    <div class="title">
+      <h2>🎮 GAMES</h2>
+      <button class="more" onclick="openFromHome('games')">
+        ดูทั้งหมด →
+      </button>
+    </div>
+
+    <div class="grid">
+
+      <div class="item">
+        <div class="icon">🌷</div>
+        <div class="label">HEARTOPIA</div>
+        <div class="value">Asia Server · Online</div>
+        <span class="game-code">6p1ee2q</span>
+      </div>
+
+      <div class="item">
+        <div class="icon">🎮</div>
+        <div class="label">ROBLOX</div>
+        <div class="value">โปรไฟล์ Roblox</div>
+      </div>
+
+      <div class="item">
+        <div class="icon">⛏️</div>
+        <div class="label">MINECRAFT</div>
+        <div class="value">โปรไฟล์ Minecraft</div>
+      </div>
+
+      <div class="item">
+        <div class="icon">☁️</div>
+        <div class="label">SKY</div>
+        <div class="value">Adventure · Online</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="card section">
+    <div class="title">
+      <h2>✉ CONTACT</h2>
+      <button class="more" onclick="openFromHome('contact')">
+        ดูทั้งหมด →
+      </button>
+    </div>
+
+    <div class="grid3">
+
+      <div class="item">
+        <div class="icon">💬</div>
+        <div class="label">DISCORD</div>
+        <div class="value">rak_saaaaaaaaaa</div>
+      </div>
+
+      <div class="item">
+        <div class="icon">📷</div>
+        <div class="label">INSTAGRAM</div>
+        <div class="value">@rak_rak_rak_rak_sa</div>
+      </div>
+
+      <div class="item">
+        <div class="icon">♪</div>
+        <div class="label">TIKTOK</div>
+        <div class="value">@may_21i5</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LIKES -->
+  <div class="card section">
+    <div class="title">
+      <h2>♥ LIKES</h2>
+      <button class="more" onclick="openFromHome('likes')">
+        ดูทั้งหมด →
+      </button>
+    </div>
+
+    <div class="grid">
+
+      <div class="item">
+        <div class="icon">🎀</div>
+        <div class="value">สีชมพู</div>
+      </div>
+
+      <div class="item">
+        <div class="icon">🫧</div>
+        <div class="value">สีมุก</div>
+      </div>
+
+      <div class="item">
+        <div class="icon">🌸</div>
+        <div class="value">สีมุกชมพู</div>
+      </div>
+
+      <div class="item">
+        <div class="icon">🤍</div>
+        <div class="value">สีขาวมุก</div>
+      </div>
+
+    </div>
+
+    <div class="palette" style="margin-top:15px">
+      <div class="color pink">Pink</div>
+      <div class="color pearl">Pearl Pink</div>
+      <div class="color white">White Pearl</div>
+    </div>
+  </div>
+
+  <!-- MY SPEC -->
+  <div class="card section">
+    <div class="title">
+      <h2>☆ MY SPEC</h2>
+      <button class="more" onclick="openFromHome('spec')">
+        ดูทั้งหมด →
+      </button>
+    </div>
+
+    <div class="grid">
+
+      <div class="item">
+        <div class="icon">🧠</div>
+        <div class="label">PERSONALITY</div>
+        <div class="value">มีเหตุผลและคุยกันรู้เรื่อง</div>
+      </div>
+
+      <div class="item">
+        <div class="icon">♡</div>
+        <div class="label">CARE</div>
+        <div class="value">ดูแลและใส่ใจกัน</div>
+      </div>
+
+      <div class="item">
+        <div class="icon">🌸</div>
+        <div class="label">HONESTY</div>
+        <div class="value">คนจริงใจ</div>
+      </div>
+
+      <div class="item">
+        <div class="icon">✦</div>
+        <div class="label">VIBE</div>
+        <div class="value">เป็นกันเอง</div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+<section class="page" id="about">
+
+  <div class="small">ABOUT ME</div>
+  <h1 class="page-title">A little about me</h1>
+  <p class="sub">บางส่วนของตัวตนและบรรยากาศที่ฉันชอบ ♡</p>
+
+  <div class="grid">
+
+    <div class="item">
+      <div class="icon">🌷</div>
+      <div class="label">PERSONALITY</div>
+      <div class="value">INFP</div>
+    </div>
+
+    <div class="item">
+      <div class="icon">🌙</div>
+      <div class="label">VIBE</div>
+      <div class="value">Dreamy · Soft · Quiet</div>
+    </div>
+
+    <div class="item">
+      <div class="icon">🎨</div>
+      <div class="label">CREATIVE</div>
+      <div class="value">ชอบสร้างและแต่งอะไรที่เป็นตัวเอง</div>
+    </div>
+
+    <div class="item">
+      <div class="icon">🦌</div>
+      <div class="label">TYPE</div>
+      <div class="value">Deer</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= GAMES ================= -->
+<section class="page" id="games">
+
+  <div class="small">GAMES</div>
+  <h1 class="page-title">Things I play</h1>
+  <p class="sub">เกมที่อยากใส่ไว้ในโลกของหนู ♡</p>
+
+  <div class="grid">
+
+    <div class="item">
+      <div class="icon">🌷</div>
+      <h3>Heartopia</h3>
+      <p>Asia Server · Online</p>
+      <span class="game-code">6p1ee2q</span>
+    </div>
+
+    <div class="item">
+      <div class="icon">🎮</div>
+      <h3>Roblox</h3>
+      <p>โปรไฟล์ Roblox ของฉัน</p>
+      <a class="link"
+      href="https://www.roblox.com/share?code=c25d543b07db2a47ac0af4609d7359fd&type=Profile&source=ProfileShare"
+      target="_blank">
+      ดูโปรไฟล์ ↗
+      </a>
+    </div>
+
+    <div class="item">
+      <div class="icon">⛏️</div>
+      <h3>Minecraft</h3>
+      <p>โปรไฟล์ Minecraft ของฉัน</p>
+      <a class="link"
+      href="https://launch.minecraft.net/profile/shikhen%209308"
+      target="_blank">
+      ดูโปรไฟล์ ↗
+      </a>
+    </div>
+
+    <div class="item">
+      <div class="icon">☁️</div>
+      <h3>Sky</h3>
+      <p>Adventure · Online ✦</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+<section class="page" id="contact">
+
+  <div class="small">CONTACT</div>
+  <h1 class="page-title">Find me</h1>
+  <p class="sub">ช่องทางติดต่อของหนู ♡</p>
+
+  <div class="grid3">
+
+    <a class="item" href="https://discord.com/" target="_blank">
+      <div class="icon">💬</div>
+      <div class="label">DISCORD</div>
+      <div class="value">rak_saaaaaaaaaa</div>
+    </a>
+
+    <a class="item"
+       href="https://www.instagram.com/rak_rak_rak_rak_sa/"
+       target="_blank">
+      <div class="icon">📷</div>
+      <div class="label">INSTAGRAM</div>
+      <div class="value">@rak_rak_rak_rak_sa</div>
+    </a>
+
+    <a class="item"
+       href="https://www.tiktok.com/@may_21i5"
+       target="_blank">
+      <div class="icon">♪</div>
+      <div class="label">TIKTOK</div>
+      <div class="value">@may_21i5</div>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ================= LIKES ================= -->
+<section class="page" id="likes">
+
+  <div class="small">LIKES</div>
+  <h1 class="page-title">Things I like ♡</h1>
+  <p class="sub">โทนสีที่หนูชอบ</p>
+
+  <div class="grid">
+
+    <div class="item">
+      <div class="icon">🎀</div>
+      <div class="label">FAVORITE COLOR</div>
+      <div class="value">สีชมพู</div>
+    </div>
+
+    <div class="item">
+      <div class="icon">🫧</div>
+      <div class="label">FAVORITE COLOR</div>
+      <div class="value">สีมุก</div>
+    </div>
+
+    <div class="item">
+      <div class="icon">🌸</div>
+      <div class="label">FAVORITE COLOR</div>
+      <div class="value">สีมุกชมพู</div>
+    </div>
+
+    <div class="item">
+      <div class="icon">🤍</div>
+      <div class="label">FAVORITE COLOR</div>
+      <div class="value">สีขาวมุก</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SPEC ================= -->
+<section class="page" id="spec">
+
+  <div class="small">MY SPEC</div>
+  <h1 class="page-title">My Spec ♡</h1>
+  <p class="sub">สิ่งที่หนูชอบในคนที่จะเข้ากันได้</p>
+
+  <div class="card">
+
+    <h3>･*:.｡. .｡.:*･</h3>
+
+    <p>
+      สวัสดีค่ะ หนูชื่อแคนนะคะ
+      จะเรียกแอนก็ได้ค่ะ ♡
+    </p>
+
+    <p>
+      หนูเป็นคนมาเลเซีย แต่พูดง่าย ๆ
+      ว่าเป็นคนไทยสยามนี่แหละค่ะ
+    </p>
+
+    <p>
+      หนูเป็นผู้ชายนะคะ เสียงอาจจะหวานนิดหน่อย
+      แค่นี้แหละค่ะ อิอิ
+    </p>
+
+  </div>
+
+  <div class="grid" style="margin-top:15px">
+
+    <div class="item">
+      <div class="icon">🧠</div>
+      <div class="label">PERSONALITY</div>
+      <div class="value">มีเหตุผลและคุยกันรู้เรื่อง</div>
+    </div>
+
+    <div class="item">
+      <div class="icon">♡</div>
+      <div class="label">CARE</div>
+      <div class="value">ดูแลและใส่ใจกัน</div>
+    </div>
+
+    <div class="item">
+      <div class="icon">🌸</div>
+      <div class="label">HONESTY</div>
+      <div class="value">คนจริงใจ ไม่เล่นกับความรู้สึก</div>
+    </div>
+
+    <div class="item">
+      <div class="icon">✦</div>
+      <div class="label">VIBE</div>
+      <div class="value">เป็นกันเอง</div>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  ✦ made with little bits of pink pearl ✦
+</footer>
+
+</div>
+
+<script>
+
+const music=document.getElementById("music");
+const musicButton=document.getElementById("musicButton");
+
+function enterWorld(){
+
+  document.getElementById("cover").style.display="none";
+  document.getElementById("site").style.display="block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+function toggleMusic(){
+
+  if(music.paused){
+
+    music.play()
+    .then(()=>{
+      musicButton.textContent="Ⅱ";
+    })
+    .catch(()=>{
+      alert("กดเล่นเพลงอีกครั้งนะคะ 🎵");
+    });
+
+  }else{
+
+    music.pause();
+    musicButton.textContent="▶";
+
+  }
+
+}
+
+function showPage(id,button){
+
+  document.querySelectorAll(".page")
+    .forEach(p=>p.classList.remove("active"));
+
+  document.getElementById(id)
+    .classList.add("active");
+
+  document.querySelectorAll(".nav")
+    .forEach(n=>n.classList.remove("active"));
+
+  if(button){
+    button.classList.add("active");
+  }else{
+
+    document.querySelectorAll(".nav")
+      .forEach(n=>{
+        if(n.getAttribute("onclick") &&
+           n.getAttribute("onclick").includes("'"+id+"'")){
+          n.classList.add("active");
+        }
+      });
+
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+function openFromHome(id){
+  showPage(id);
+}
+
+</script>
+
+</body>
+</html>
