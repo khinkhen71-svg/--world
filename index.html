@@ -1,596 +1,395 @@
-<!doctype html>
-<html lang="th">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Khen's World ♡</title>
+<!-- =========================
+     CONTACT PAGE
+========================= -->
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap');
+/* ---------- CONTACT ---------- */
 
-:root{
---bg:#09070b;
---card:#151018;
---pink:#f4b8d5;
---pink2:#ffd8e9;
---pearl:#fff8fc;
---muted:#bbaab5;
---line:rgba(255,210,232,.18)
+.contact-page {
+  min-height: 100vh;
+  padding: 70px 6%;
+  position: relative;
+  overflow: hidden;
+  color: #ffe8f7;
+  font-family: "Kanit", sans-serif;
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-
-body{
-margin:0;
-background:
-radial-gradient(circle at 20% 10%,rgba(244,184,213,.1),transparent 28%),
-radial-gradient(circle at 85% 80%,rgba(255,248,252,.07),transparent 25%),
-var(--bg);
-color:var(--pearl);
-font-family:Kanit,sans-serif;
-min-height:100vh;
-overflow-x:hidden
+/* พื้นหลัง */
+.contact-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,180,230,.18), transparent 25%),
+    radial-gradient(circle at 85% 25%, rgba(220,170,255,.16), transparent 28%),
+    radial-gradient(circle at 50% 90%, rgba(255,150,220,.12), transparent 30%),
+    linear-gradient(135deg, #171122, #26182f 50%, #130e1e);
+  z-index: -3;
 }
 
-a{color:inherit;text-decoration:none}
-
-#particles{
-position:fixed;
-inset:0;
-pointer-events:none;
-overflow:hidden;
-z-index:0
+/* ดาว */
+.contact-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.particle{
-position:absolute;
-opacity:.7;
-animation:float 7s linear infinite;
-color:var(--pink2)
+.contact-stars span {
+  position: absolute;
+  color: #ffd9f3;
+  text-shadow: 0 0 12px #ffbce7;
+  animation: twinkle 3s ease-in-out infinite;
 }
 
-@keyframes float{
-0%{transform:translateY(110vh) rotate(0);opacity:0}
-15%{opacity:.7}
-85%{opacity:.7}
-100%{transform:translateY(-15vh) rotate(180deg);opacity:0}
+.contact-stars span:nth-child(1) {
+  top: 12%;
+  left: 8%;
+  font-size: 28px;
 }
 
-.cover{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:30px;
-position:relative;
-z-index:2
+.contact-stars span:nth-child(2) {
+  top: 20%;
+  right: 12%;
+  font-size: 18px;
+  animation-delay: .7s;
 }
 
-.cover-box{
-max-width:700px;
-padding:45px 25px;
-border:1px solid var(--line);
-border-radius:28px;
-background:rgba(21,16,24,.78);
-backdrop-filter:blur(12px);
-box-shadow:0 20px 80px rgba(0,0,0,.4)
+.contact-stars span:nth-child(3) {
+  top: 55%;
+  left: 5%;
+  font-size: 20px;
+  animation-delay: 1.2s;
 }
 
-.small{
-letter-spacing:5px;
-color:var(--pink);
-font-size:12px
+.contact-stars span:nth-child(4) {
+  bottom: 15%;
+  right: 8%;
+  font-size: 30px;
+  animation-delay: 1.8s;
 }
 
-h1{
-font-family:"Playfair Display",serif;
-font-size:clamp(42px,10vw,82px);
-margin:14px 0 4px
+.contact-stars span:nth-child(5) {
+  top: 42%;
+  right: 30%;
+  font-size: 14px;
+  animation-delay: 2.2s;
 }
 
-.subtitle{
-color:var(--muted);
-margin-bottom:28px
+@keyframes twinkle {
+  0%, 100% {
+    opacity: .35;
+    transform: scale(.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 
-.enter{
-border:1px solid var(--pink);
-color:var(--pink2);
-background:transparent;
-padding:13px 25px;
-border-radius:999px;
-cursor:pointer;
-transition:.25s
+/* กล่องหลัก */
+.contact-box {
+  max-width: 1100px;
+  margin: auto;
+  padding: 35px;
+  border: 1px solid rgba(255,190,235,.35);
+  border-radius: 28px;
+  background: rgba(20,14,34,.72);
+  box-shadow:
+    0 0 40px rgba(255,150,220,.12),
+    inset 0 0 30px rgba(255,255,255,.025);
+  backdrop-filter: blur(15px);
 }
 
-.enter:hover{
-background:rgba(244,184,213,.12);
-transform:translateY(-2px)
+/* หัวข้อ */
+.contact-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
 }
 
-#site{
-display:none;
-position:relative;
-z-index:1
+.contact-title .icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: rgba(255,170,225,.13);
+  border: 1px solid rgba(255,190,235,.3);
+  font-size: 30px;
+  box-shadow: 0 0 20px rgba(255,150,220,.15);
 }
 
-nav{
-position:sticky;
-top:0;
-z-index:10;
-display:flex;
-gap:8px;
-justify-content:center;
-flex-wrap:wrap;
-padding:13px 10px;
-background:rgba(9,7,11,.84);
-backdrop-filter:blur(14px);
-border-bottom:1px solid var(--line)
+.contact-title h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
-.nav-btn{
-border:1px solid transparent;
-background:transparent;
-color:var(--muted);
-padding:8px 12px;
-border-radius:999px;
-cursor:pointer
+.contact-subtitle {
+  margin: 0 0 30px 71px;
+  color: #e9c9df;
+  font-size: 15px;
 }
 
-.nav-btn:hover,
-.nav-btn.active{
-color:var(--pink2);
-border-color:var(--line);
-background:rgba(244,184,213,.07)
+/* การ์ด */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-.page{
-display:none;
-max-width:900px;
-margin:auto;
-min-height:calc(100vh - 70px);
-padding:70px 20px 90px;
-animation:pageIn .45s ease
+/* การ์ดแต่ละอัน */
+.contact-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  min-height: 125px;
+  padding: 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,190,235,.32);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,180,225,.08),
+      rgba(255,255,255,.025)
+    );
+  text-decoration: none;
+  color: #ffe8f7;
+  overflow: hidden;
+  transition: .35s ease;
 }
 
-.page.active{display:block}
-
-@keyframes pageIn{
-from{opacity:0;transform:translateY(12px)}
-to{opacity:1;transform:none}
+/* แสงด้านใน */
+.contact-card::before {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  top: -70px;
+  right: -50px;
+  border-radius: 50%;
+  background: rgba(255,180,225,.13);
+  filter: blur(10px);
 }
 
-.page-title{
-font-family:"Playfair Display",serif;
-font-size:clamp(34px,8vw,58px);
-margin:0 0 8px
+/* hover */
+.contact-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(255,205,240,.7);
+  box-shadow:
+    0 12px 35px rgba(255,140,215,.15),
+    0 0 20px rgba(255,180,230,.1);
 }
 
-.page-sub{
-color:var(--muted);
-margin:0 0 30px
+/* ไอคอน */
+.contact-icon {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 29px;
+  background: rgba(255,170,225,.12);
+  border: 1px solid rgba(255,200,235,.28);
+  box-shadow: inset 0 0 18px rgba(255,180,225,.08);
 }
 
-.card{
-background:rgba(21,16,24,.78);
-border:1px solid var(--line);
-border-radius:24px;
-padding:24px;
-margin:15px 0;
-box-shadow:0 15px 50px rgba(0,0,0,.18)
+/* ข้อความ */
+.contact-info {
+  position: relative;
+  z-index: 2;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-gap:15px
+.contact-name {
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
-.item{
-border:1px solid var(--line);
-border-radius:20px;
-padding:20px;
-background:rgba(255,255,255,.025);
-transition:.25s
+.contact-id {
+  color: #dcbdd4;
+  font-size: 14px;
+  word-break: break-word;
 }
 
-.item:hover{
-transform:translateY(-4px);
-border-color:rgba(244,184,213,.45)
+/* ลูกศร */
+.contact-arrow {
+  margin-left: auto;
+  font-size: 24px;
+  color: #ffc7e9;
+  transition: .3s ease;
 }
 
-.icon{font-size:27px}
-
-.label{
-color:var(--pink);
-font-size:13px;
-margin-top:7px
+.contact-card:hover .contact-arrow {
+  transform: translateX(6px);
 }
 
-.value{
-font-size:17px;
-margin-top:3px
+/* ข้อความด้านล่าง */
+.contact-footer {
+  text-align: center;
+  margin-top: 35px;
+  color: #dcbdd4;
+  font-size: 14px;
 }
 
-.contact-btn{
-display:block;
-border:1px solid var(--line);
-border-radius:18px;
-padding:15px 17px;
-margin:10px 0;
-background:rgba(255,255,255,.025);
-transition:.2s
+.contact-footer span {
+  color: #ffbde5;
 }
 
-.contact-btn:hover{
-background:rgba(244,184,213,.1);
-transform:translateX(4px)
-}
+/* มือถือ / iPad */
+@media (max-width: 800px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 
-.palette{
-display:flex;
-gap:14px;
-flex-wrap:wrap
-}
+  .contact-box {
+    padding: 25px 18px;
+  }
 
-.swatch{
-min-width:130px;
-height:100px;
-border-radius:22px;
-display:flex;
-align-items:end;
-padding:12px;
-border:1px solid var(--line);
-color:#33252e
-}
+  .contact-subtitle {
+    margin-left: 0;
+  }
 
-.pink{background:#f4b8d5}
-.pearlpink{background:#ffd8e9}
-.whitepearl{background:#fff8fc}
-
-.game-code{
-font-family:monospace;
-color:var(--pink2);
-background:rgba(0,0,0,.3);
-padding:3px 7px;
-border-radius:7px
-}
-
-footer{
-text-align:center;
-color:#8f7f89;
-padding:25px;
-border-top:1px solid var(--line)
+  .contact-title h1 {
+    font-size: 27px;
+  }
 }
 </style>
-</head>
-
-<body>
-
-<div id="particles"></div>
-
-<section class="cover" id="cover">
-<div class="cover-box">
-<div class="small">✦ A LITTLE CORNER OF MY WORLD ✦</div>
-<h1>ดื้อดื้อ</h1>
-<div class="subtitle">INFP · MY SPEC ♡</div>
-<button class="enter" onclick="enterSite()">ENTER MY WORLD ♡</button>
-</div>
-</section>
-
-<div id="site">
-
-<nav>
-<button class="nav-btn active" data-page="home">♡ Home</button>
-<button class="nav-btn" data-page="about">About Me</button>
-<button class="nav-btn" data-page="games">Games</button>
-<button class="nav-btn" data-page="contact">Contact</button>
-<button class="nav-btn" data-page="likes">Likes</button>
-<button class="nav-btn" data-page="spec">My Spec</button>
-</nav>
-
-<main>
-
-<section class="page active" id="home">
-<div class="small">WELCOME</div>
-<h2 class="page-title">My little world ♡</h2>
-<p class="page-sub">พื้นที่เล็ก ๆ ที่รวมสิ่งที่เป็น Khen ไว้ด้วยกัน</p>
-
-<div class="card">
-<h3>✦ Hello there</h3>
-<p>
-ยินดีต้อนรับเข้ามาในโลกเล็ก ๆ ของฉันนะ ✨<br>
-กดเมนูด้านบนเพื่อเดินดูทีละหน้าได้เลย
-</p>
-</div>
-</section>
 
 
-<section class="page" id="about">
-<div class="small">ABOUT ME</div>
-<h2 class="page-title">A little about me</h2>
-<p class="page-sub">บางส่วนของตัวตนและบรรยากาศที่ฉันชอบ</p>
+<section class="contact-page">
 
-<div class="grid">
-
-<div class="item">
-<div class="icon">🌷</div>
-<div class="label">PERSONALITY</div>
-<div class="value">INFP</div>
-</div>
-
-<div class="item">
-<div class="icon">🌙</div>
-<div class="label">VIBE</div>
-<div class="value">Dreamy · Soft · Quiet</div>
-</div>
-
-<div class="item">
-<div class="icon">🎨</div>
-<div class="label">CREATIVE</div>
-<div class="value">ชอบสร้างและแต่งอะไรที่เป็นตัวเอง</div>
-</div>
-
-</div>
-</section>
+  <!-- ดาวตกแต่ง -->
+  <div class="contact-stars">
+    <span>✦</span>
+    <span>✧</span>
+    <span>♡</span>
+    <span>✦</span>
+    <span>⋆</span>
+  </div>
 
 
-<section class="page" id="games">
-<div class="small">GAMES</div>
-<h2 class="page-title">Things I play</h2>
-<p class="page-sub">เกม / เซิร์ฟที่อยากใส่ไว้ในโปรไฟล์</p>
+  <div class="contact-box">
 
-<div class="card">
-<h3>🌷 Heartopia</h3>
-<p>Asia Server · Online</p>
-<p>Code: <span class="game-code">6p1ee2q</span></p>
-</div>
+    <!-- หัวข้อ -->
+    <div class="contact-title">
+      <div class="icon">✉️</div>
 
-<div class="card">
-<h3>🎮 Roblox</h3>
-<p>โปรไฟล์ Roblox ของฉัน</p>
-<a class="contact-btn"
-href="https://www.roblox.com/share?code=c25d543b07db2a47ac0af4609d7359fd&type=Profile&source=ProfileShare&stamp=1788686703070"
-target="_blank"
-rel="noopener">
-กดเพื่อดูโปรไฟล์ Roblox ↗
-</a>
-</div>
+      <div>
+        <h1>CONTACT</h1>
+      </div>
+    </div>
 
-<div class="card">
-<h3>⛏️ Minecraft</h3>
-<p>โปรไฟล์ Minecraft ของฉัน</p>
-<a class="contact-btn"
-href="https://launch.minecraft.net/profile/shikhen%209308"
-target="_blank"
-rel="noopener">
-กดเพื่อดูโปรไฟล์ Minecraft ↗
-</a>
-</div>
-
-<div class="card">
-<h3>☁️ Sky</h3>
-<p>Adventure · Online ✦</p>
-</div>
-
-</section>
+    <p class="contact-subtitle">
+      ช่องทางติดต่อของฉัน ♡
+    </p>
 
 
-<section class="page" id="contact">
-<div class="small">CONTACT</div>
-<h2 class="page-title">Find me</h2>
-<p class="page-sub">กดที่ช่องเพื่อเปิดช่องทางติดต่อ</p>
+    <!-- ช่องทางติดต่อ -->
+    <div class="contact-grid">
 
-<a class="contact-btn"
-href="https://discord.com/"
-target="_blank"
-rel="noopener">
-💬 <strong>Discord</strong><br>
-<span style="color:var(--muted)">0199761651</span>
-</a>
+      <!-- DISCORD -->
+      <a
+        class="contact-card"
+        href="https://discord.com/"
+        target="_blank"
+        rel="noopener"
+      >
 
-<a class="contact-btn"
-href="https://www.instagram.com/rak_rak_rak_rak_sa?stkn=enhqbW91em53Z2g2&utm_source=qr"
-target="_blank"
-rel="noopener">
-📷 <strong>Instagram</strong><br>
-<span style="color:var(--muted)">@rak_rak_rak_rak_sa</span>
-</a>
+        <div class="contact-icon">
+          💬
+        </div>
 
-<a class="contact-btn"
-href="https://www.tiktok.com/@may_21i5?_r=1&_t=ZS-99VFwUZ4DhQ"
-target="_blank"
-rel="noopener">
-🎵 <strong>TikTok</strong><br>
-<span style="color:var(--muted)">@may_21i5</span>
-</a>
+        <div class="contact-info">
+          <div class="contact-name">
+            Discord
+          </div>
+
+          <div class="contact-id">
+            rak_saaaaaaaaaa
+          </div>
+        </div>
+
+        <div class="contact-arrow">
+          →
+        </div>
+
+      </a>
+
+
+      <!-- INSTAGRAM -->
+      <a
+        class="contact-card"
+        href="https://www.instagram.com/rak_rak_rak_rak_sa/"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="contact-icon">
+          ◎
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-name">
+            Instagram
+          </div>
+
+          <div class="contact-id">
+            @rak_rak_rak_rak_sa
+          </div>
+        </div>
+
+        <div class="contact-arrow">
+          →
+        </div>
+
+      </a>
+
+
+      <!-- TIKTOK -->
+      <a
+        class="contact-card"
+        href="https://www.tiktok.com/@may_21i5"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="contact-icon">
+          ♪
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-name">
+            TikTok
+          </div>
+
+          <div class="contact-id">
+            @may_21i5
+          </div>
+        </div>
+
+        <div class="contact-arrow">
+          →
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- ข้อความล่าง -->
+    <div class="contact-footer">
+      ✦ <span>ยินดีที่ได้รู้จักนะคะ</span> ♡
+      <br>
+      ขอบคุณที่แวะเข้ามาในโลกเล็ก ๆ ของฉัน
+    </div>
+
+  </div>
 
 </section>
-
-
-<section class="page" id="likes">
-<div class="small">LIKES</div>
-<h2 class="page-title">Things I like ♡</h2>
-<p class="page-sub">เปลี่ยนรายการเดิมให้เป็นโทนสีที่ฉันชอบ</p>
-
-<div class="grid">
-
-<div class="item">
-<div class="icon">🎀</div>
-<div class="label">FAVORITE COLOR</div>
-<div class="value">สีชมพู</div>
-</div>
-
-<div class="item">
-<div class="icon">🫧</div>
-<div class="label">FAVORITE COLOR</div>
-<div class="value">สีมุก</div>
-</div>
-
-<div class="item">
-<div class="icon">🌸</div>
-<div class="label">FAVORITE COLOR</div>
-<div class="value">สีมุกชมพู</div>
-</div>
-
-<div class="item">
-<div class="icon">🤍</div>
-<div class="label">FAVORITE COLOR</div>
-<div class="value">สีขาวมุก</div>
-</div>
-
-</div>
-
-<div class="card">
-<h3>My pearl palette</h3>
-
-<div class="palette">
-<div class="swatch pink">Pink</div>
-<div class="swatch pearlpink">Pearl Pink</div>
-<div class="swatch whitepearl">White Pearl</div>
-</div>
-
-</div>
-</section>
-
-
-<section class="page" id="spec">
-
-<div class="small">MY SPEC</div>
-<h2 class="page-title">My Spec ♡</h2>
-
-<div class="card">
-
-<h3>
-･*:.｡. .｡.:*･゜ﾟ･* แนะนำตัว ･*:.｡. .｡.:*･゜ﾟ･*
-</h3>
-
-<p>สวัสดีค่ะ หนูชื่อแคนนะคะ จะเรียกแอนก็ได้ค่ะ ♡</p>
-
-<p>หนูเป็นคนมาเลเซีย แต่พูดง่าย ๆ ว่าเป็นคนไทยสยามนี่แหละค่ะ</p>
-
-<p>หนูเป็นผู้ชายนะคะ เสียงอาจจะหวานนิดหน่อย แค่นี้แหละค่ะ อิอิ</p>
-
-</div>
-
-<p class="page-sub">
-ไม่กำหนดรูปร่างหรือหน้าตาเป็นแบบตายตัว
-</p>
-
-<div class="card">
-
-<div class="grid">
-
-<div class="item">
-<div class="icon">🧠</div>
-<div class="label">PERSONALITY</div>
-<div class="value">มีเหตุผลและคุยกันรู้เรื่อง</div>
-</div>
-
-<div class="item">
-<div class="icon">🤍</div>
-<div class="label">CARE</div>
-<div class="value">ดูแลและใส่ใจกัน</div>
-</div>
-
-<div class="item">
-<div class="icon">🌷</div>
-<div class="label">HONESTY</div>
-<div class="value">จริงใจ ไม่เล่นกับความรู้สึก</div>
-</div>
-
-<div class="item">
-<div class="icon">✨</div>
-<div class="label">VIBE</div>
-<div class="value">หวงหรือหึงได้นิดหน่อยแบบพอดี และเคารพขอบเขตกัน</div>
-</div>
-
-</div>
-</div>
-
-</section>
-
-</main>
-
-<footer>
-✦ made with little bits of pink pearl ✦
-</footer>
-
-</div>
-
-<script>
-
-const clickSound=new Audio(
-"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA="
-);
-
-clickSound.volume=.35;
-
-function playClick(){
-try{
-clickSound.currentTime=0;
-clickSound.play().catch(()=>{});
-}catch(e){}
-}
-
-function enterSite(){
-playClick();
-document.getElementById("cover").style.display="none";
-document.getElementById("site").style.display="block";
-showPage("home",false);
-}
-
-function showPage(id,sound=true){
-
-if(sound)playClick();
-
-document.querySelectorAll(".page")
-.forEach(p=>p.classList.remove("active"));
-
-document.querySelectorAll(".nav-btn")
-.forEach(b=>b.classList.remove("active"));
-
-document.getElementById(id).classList.add("active");
-
-document.querySelector('[data-page="'+id+'"]')
-.classList.add("active");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-}
-
-document.querySelectorAll(".nav-btn")
-.forEach(btn=>
-btn.addEventListener(
-"click",
-()=>showPage(btn.dataset.page)
-)
-);
-
-const particles=document.getElementById("particles"),
-symbols=["✦","✧","♡","⋆","·"];
-
-for(let i=0;i<28;i++){
-
-const s=document.createElement("span");
-
-s.className="particle";
-s.textContent=
-symbols[Math.floor(Math.random()*symbols.length)];
-
-s.style.left=Math.random()*100+"%";
-s.style.animationDelay=Math.random()*7+"s";
-s.style.animationDuration=5+Math.random()*6+"s";
-s.style.fontSize=10+Math.random()*16+"px";
-
-particles.appendChild(s);
-}
-
-</script>
-
-</body>
-</html>
